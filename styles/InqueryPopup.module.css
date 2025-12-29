@@ -1,0 +1,36 @@
+.progress{
+    height: 2px;
+    position: absolute;
+    left: 0;
+    top: -22px;
+  }
+  .progress_bar{
+    position: relative;
+    left: -13px;
+    background: var(--color-1);
+  }
+  .closeButtonContainer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+  }
+  .form_check label {
+    cursor: pointer;
+  }
+  .form_check input[type="checkbox"]:checked + label {
+    color:var(--brand-color-2);
+  }
+  .mcq_btn{
+    padding: 10px;
+    color: var(--color-1);
+    border: 1px solid;
+    outline: none;
+    width: auto;
+    background: var(--brand-color-1);
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+  .question_section h4{
+    font-size: 20px;
+  }

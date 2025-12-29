@@ -1,0 +1,251 @@
+.prominentArea {
+  padding: 60px 0;
+  background: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Texture Overlay for Premium Feel */
+.prominentArea::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(197, 160, 89, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 10;
+}
+
+.watermark {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 7rem;
+  font-weight: 900;
+  color: rgba(0, 0, 0, 0.02);
+  text-transform: uppercase;
+  letter-spacing: 15px;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.titleMain {
+  font-size: 2.8rem;
+  font-weight: 200;
+  color: #1a1a1a;
+  line-height: 1;
+  margin-bottom: 10px;
+  letter-spacing: -2px;
+}
+
+.titleMain span {
+  display: inline-block;
+  font-weight: 800;
+  color: #d3122a;
+  background: linear-gradient(to right, #d3122a, #c5a059);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding-left: 5px;
+}
+
+.subTitle {
+  font-size: 0.95rem;
+  color: #777;
+  max-width: 500px;
+  margin: 0 auto;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+/* --- The Creative 'Soft Grid' --- */
+.prominentLoc {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.card_wrapper {
+  height: 100%;
+}
+
+.card {
+  position: relative;
+  display: block;
+  height: 280px;
+  /* Short/Compact */
+  border-radius: 20px;
+  overflow: hidden;
+  background: #f8f8f8;
+  text-decoration: none;
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(197, 160, 89, 0.15);
+  border-color: rgba(197, 160, 89, 0.3);
+}
+
+.card_img_wrapper {
+  position: absolute;
+  inset: 0;
+}
+
+.card_img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s ease;
+  filter: brightness(0.9);
+}
+
+.card:hover .card_img {
+  transform: scale(1.1);
+  filter: brightness(1);
+}
+
+.card_overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top,
+      rgba(0, 0, 0, 0.85) 0%,
+      rgba(0, 0, 0, 0.2) 50%,
+      transparent 100%);
+  z-index: 2;
+  transition: all 0.5s ease;
+}
+
+.card:hover .card_overlay {
+  background: linear-gradient(to top,
+      rgba(211, 18, 42, 0.8) 0%,
+      transparent 100%);
+}
+
+.card_content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  z-index: 5;
+  transition: transform 0.4s ease;
+}
+
+.card_category {
+  font-size: 0.65rem;
+  color: #c5a059;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 800;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.card_title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.card_rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #f1c40f;
+  font-size: 0.75rem;
+  margin-top: 8px;
+  opacity: 0.9;
+}
+
+.card_text {
+  display: none;
+  /* Keep it compact */
+}
+
+.card_btn {
+  font-size: 0.7rem;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.4s ease;
+}
+
+.card:hover .card_btn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.viewAllBtn {
+  display: block;
+  width: fit-content;
+  margin: 40px auto 0;
+  padding: 12px 35px;
+  background: #1a1a1a;
+  color: #fff !important;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.viewAllBtn:hover {
+  background: #d3122a;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(211, 18, 42, 0.2);
+}
+
+@media (max-width: 1200px) {
+  .prominentLoc {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 992px) {
+  .prominentLoc {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .titleMain {
+    font-size: 2.2rem;
+  }
+
+  .watermark {
+    font-size: 5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .prominentLoc {
+    grid-template-columns: 1fr;
+  }
+
+  .prominentArea {
+    padding: 40px 0;
+  }
+}

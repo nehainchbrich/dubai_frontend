@@ -1,0 +1,17 @@
+.card{
+   width: 100%;
+    min-height: 250px;
+    height: 100%;
+    cursor: pointer;
+    box-shadow:var(--shadow-300);
+    border-radius: 10px;
+    padding: 10px;
+    background: var(--color-1);
+
+}
+.card h4 a{
+    color: var(--brand-color-1)!important;
+}
+.card img{
+    width: 100%;
+}

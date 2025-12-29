@@ -1,0 +1,43 @@
+.vipSection {
+  background: #000;
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.vipHeading {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  letter-spacing: 2px;
+}
+
+.vipContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.vipItem {
+  max-width: 44%;
+}
+
+.vipItem img {
+  width: 100%;
+  box-shadow: 0px 0px 15px 1px #8a6e33;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.vipItem img:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 8px 25px rgba(255, 255, 255, 0.2);
+}
+
+.vipItem p {
+  margin-top: 12px;
+  font-size: 1.2rem;
+  font-weight: 500;
+}

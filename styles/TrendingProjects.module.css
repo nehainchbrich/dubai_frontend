@@ -1,0 +1,350 @@
+.trendingArea {
+    padding: 60px 0;
+    background: #ffffff;
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(circle at 0% 0%, rgba(211, 18, 42, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 100% 100%, rgba(197, 160, 89, 0.05) 0%, transparent 50%);
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.splitLayout {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 50px;
+    align-items: flex-start;
+}
+
+/* Left Content */
+.leftContent {
+    position: relative;
+    padding-top: 10px;
+    z-index: 10;
+}
+
+.watermarkBody {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    font-size: 15rem;
+    font-weight: 900;
+    color: #000;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 1;
+    text-transform: uppercase;
+    letter-spacing: -8px;
+    opacity: 0.02;
+}
+
+.titleMain {
+    font-size: 2.8rem;
+    font-weight: 400;
+    color: #1a1a1a;
+    line-height: 1.1;
+    position: relative;
+    z-index: 10;
+    margin-bottom: 25px;
+    letter-spacing: -1.5px;
+}
+
+.titleMain span {
+    display: block;
+    font-weight: 800;
+    color: #d3122a;
+    background: linear-gradient(to right, #d3122a, #c5a059);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subHeading {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    max-width: 300px;
+    font-weight: 400;
+}
+
+.progressInfo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.divider {
+    height: 2px;
+    width: 60px;
+    background: linear-gradient(to right, #c5a059, transparent);
+}
+
+.currentProgress {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    letter-spacing: 2px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.navControls {
+    display: flex;
+    gap: 12px;
+}
+
+.navBtn {
+    width: 50px;
+    height: 50px;
+    background: #fff;
+    border: 1px solid #eee;
+    color: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    font-size: 1rem;
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+}
+
+.navBtn:last-child {
+    background: #1a1a1a;
+    color: #ffffff;
+    border-color: #1a1a1a;
+}
+
+.navBtn:hover {
+    background: #d3122a;
+    color: #ffffff;
+    border-color: #d3122a;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(211, 18, 42, 0.2);
+}
+
+/* Right Slider */
+.sliderPane {
+    overflow: hidden;
+    padding: 10px 0;
+    position: relative;
+    z-index: 10;
+    min-width: 0;
+}
+
+.showcaseWrapper {
+    display: flex;
+    gap: 30px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 10px 0 30px 5px;
+}
+
+.showcaseWrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.projectCard {
+    flex: 0 0 320px;
+    text-decoration: none !important;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.projectCard:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    border-color: rgba(197, 160, 89, 0.2);
+}
+
+.imageBox {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    position: relative;
+    overflow: hidden;
+}
+
+.projectImage {
+    object-fit: cover !important;
+    transition: transform 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.projectCard:hover .projectImage {
+    transform: scale(1.1);
+}
+
+.trendingBadge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: rgba(211, 18, 42, 0.9);
+    backdrop-filter: blur(8px);
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 50px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    box-shadow: 0 4px 10px rgba(211, 18, 42, 0.3);
+}
+
+.priceTag {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    padding: 8px 15px;
+    border-radius: 12px;
+    color: #1a1a1a;
+    font-weight: 800;
+    font-size: 0.95rem;
+    z-index: 5;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    line-height: 1;
+}
+
+.priceTag span {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    color: #666;
+    letter-spacing: 0.5px;
+    margin-bottom: 3px;
+    font-weight: 600;
+}
+
+.cardContent {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.categoryTag {
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #c5a059;
+    letter-spacing: 1.5px;
+}
+
+.projectTitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    line-height: 1.3;
+    transition: color 0.3s ease;
+}
+
+.projectCard:hover .projectTitle {
+    color: #d3122a;
+}
+
+.projectLoc {
+    font-size: 0.85rem;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 5px;
+}
+
+.projectLoc i {
+    color: #c5a059;
+}
+
+.cardFooter {
+    margin-top: 5px;
+    padding-top: 15px;
+    border-top: 1px solid #f5f5f5;
+}
+
+.readMore {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #1a1a1a;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.readMore i {
+    font-size: 0.7rem;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.projectCard:hover .readMore {
+    color: #d3122a;
+}
+
+.projectCard:hover .readMore i {
+    transform: translateX(5px);
+}
+
+@media (max-width: 1200px) {
+    .container {
+        padding: 0 20px;
+    }
+
+    .splitLayout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .leftContent {
+        text-align: center;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .subHeading {
+        max-width: 100%;
+    }
+
+    .progressInfo {
+        justify-content: center;
+    }
+
+    .navControls {
+        justify-content: center;
+    }
+
+    .watermarkBody {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .projectCard {
+        flex: 0 0 280px;
+    }
+
+    .titleMain {
+        font-size: 2.2rem;
+    }
+}

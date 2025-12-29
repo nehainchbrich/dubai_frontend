@@ -1,0 +1,16 @@
+.expo_img{
+    width: 277px;
+    height: 86px;
+    padding: 10px;
+    object-fit: fill;
+}
+.expo_qr {
+    width: 250px;
+    height: auto;
+    padding: 10px;
+}
+.clickBtn{
+    font-size: 20px;
+    color: var(--brand-color-1);
+    font-weight: 600;
+}

@@ -1,0 +1,43 @@
+.banner_container {
+    position: relative;
+    width: 100%;
+    margin: auto;
+    height: 100vh;
+  }
+  .banner_container img{
+    width: 100%;
+    height: 100vh;
+    filter: brightness(0.7);
+  }
+  .banner_overlay {
+    top: 50%;
+    text-align: center;
+    width: 100%;
+    height: 50vh;
+    position: absolute;
+    display: flow-root;
+  }
+  
+  .banner_overlay h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    font-weight: bolder;
+    text-shadow: 4px 3px var(--color-5);
+  }
+  .banner_overlay p {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 4px 3px var(--color-5);
+  }
+  
+  @media only screen and (max-width: 767px) {
+    .banner_container img{
+      width: 100%;
+      height: 30vh;
+    }
+    .banner_overlay h1 {
+      font-size: 2.7rem;
+      margin-top: 6rem;
+  }
+  }
+  

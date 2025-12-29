@@ -1,0 +1,39 @@
+.leadership {
+  position: relative;
+  width: 100%;
+  margin: auto;
+  height: 250px;
+}
+.leadership img {
+  width: 100%;
+  height: 250px;
+}
+.banner_overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+}
+.leadership h2{
+  font-size: 3rem;
+}
+.btn{
+  color: red;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 767px) {
+  .leadership img{
+    width: 100%;
+    height: 40vh;
+  }
+  .banner_overlay  {
+    width: 100%;
+    padding: 10px;
+}
+}
+
+
+

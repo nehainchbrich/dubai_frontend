@@ -1,0 +1,93 @@
+.offplan_card {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid var(--brand-color-2);
+    cursor: pointer;
+  }
+  
+  .image_container {
+    position: relative;
+  }
+  
+  .img_fluid {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  .verified{
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    color: var(--color-1);
+    background: var(--brand-color-2);
+    font-size: 12px;
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: 400;
+    font-style: normal;
+    z-index: 1;
+  }
+  .offplan_card:hover .img_fluid {
+    transform: scale(1.1);
+  }
+  
+  .caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--tr-color-3);
+    padding: 10px;
+    transition: opacity 0.3s ease;
+  }
+  
+  .caption_text {
+    color: var(--color-1);
+    font-size: 18px;
+    text-align: center;
+    margin: 0;
+  }
+ 
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-color: var(--tr-color-3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: opacity 0.3s ease;
+  }
+  
+  .offplan_card:hover .overlay {
+    opacity: 1;
+  }
+  
+  .overlay_content {
+    text-align: center;
+    color:var(--color-1);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .offplan_card:hover .overlay_content {
+    opacity: 1;
+  }
+  
+  .title {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .text {
+    font-size: 16px;
+  }

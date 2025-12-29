@@ -1,0 +1,69 @@
+.active_expo {
+    background: var(--color-1);
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    color: var(--brand-color-1);
+    cursor: pointer;
+}
+.active_expo img{
+    width: 100%;
+    border-radius: 10px 0 0 10px;
+}
+.active_expo_content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--brand-color-1);
+}
+.active_expo_content h3{
+    text-transform: uppercase;
+}
+
+.upcoming_expo{
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding: 10px;
+    border: 5px double var(--brand-color-2);
+    text-transform: uppercase;
+    cursor: pointer;
+    color: var(--brand-color-2);
+    background: var(--color-1);
+    width: 100%;
+    
+}
+.btn{
+    text-transform: capitalize;
+    color: var(--color-3);
+}
+
+.completed_expo {
+    background: var(--color-1);
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    color: var(--brand-color-1);
+    cursor: pointer;
+}
+.completed_expo img{
+    width: 100%;
+    border-radius: 10px 0 0 10px;
+}
+.completed_expo_content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--brand-color-1);
+}
+.completed_expo_content h3{
+    text-transform: uppercase;
+}
+.completed_expo_content h4{
+   font-size: 18px;
+}
+
+
+  

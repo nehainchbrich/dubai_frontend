@@ -1,0 +1,36 @@
+.rating {
+    display: inline-block;
+    direction: rtl;
+    unicode-bidi: bidi-override;
+  }
+  
+  .rating input[type="radio"] {
+    display: none;
+  }
+  
+  .rating label {
+    display: inline-block;
+    cursor: pointer;
+    width: 4em;
+    height: 5em;
+    margin: 0 0.2em 0 0;
+    position: relative;
+  }
+  
+  .rating label:before {
+    content: '\2605';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1em;
+    height: 1em;
+    color: #ccc;
+    font-size: 60px;
+  }
+  
+  .rating label:hover:before,
+  .rating label:hover ~ label:before,
+  .rating input[type="radio"]:checked ~ label:before {
+    color: #ffce00;
+  }
+  

@@ -1,0 +1,75 @@
+.triggerbtn {
+    background: #ff0000;
+    position: fixed;
+    z-index: 99;
+    bottom: 56px;
+    right: 15px;
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  .phoneBlink{
+    animation: phoneRing 1s infinite alternate;
+  }
+  .triggerbtn i {
+    font-size: 25px;
+    color: #fff;
+  }
+  
+  .contactOptions {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 3.6rem;
+    left: 0;
+    border-radius: 5px;
+  }
+  .contactOptions ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .contactOptions ul li {
+    margin-bottom: 10px;
+  }
+  
+  .contactOptions ul li i {
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+.phone{
+    background: #01488b;
+}
+.whatsapp{
+    background: #28a219;
+}
+.envelope{
+    background: #f7a220;
+}
+  @keyframes phoneRing {
+    0% {
+      transform: rotateZ(0deg);
+      font-size: 25px;
+    }
+    50% {
+      transform: rotateZ(10deg);
+      font-size: 30px;
+    }
+    100% {
+      transform: rotateZ(0deg);
+      font-size: 25px;
+    }
+  }

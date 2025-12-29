@@ -1,0 +1,145 @@
+#bg1 #bg2 {
+    height: 0;
+  }
+  
+  .videoGridSection {
+    padding: 0 0 40px 0;
+    margin-top: 2rem;
+    background: #fff;
+  }
+  /* When video is playing, hide the button */
+.playing .videoPlayPauseBtn {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* But show button on hover */
+.playing:hover .videoPlayPauseBtn {
+  opacity: 1;
+  pointer-events: auto;
+}
+  .videoGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px 12px;
+  }
+  
+  .videoCol {
+    aspect-ratio: 1 / 1;
+    background: #eee;
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    position: relative;
+    align-items: center;
+    width: 234px;
+    height: 415px;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: box-shadow 0.2s;
+  }
+  
+  .videoCol:hover {
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+  }
+  
+  .videoCol video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    background: #000;
+    border-radius: 16px;
+  }
+  
+  @media (max-width: 900px) {
+    .videoGrid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .videoGrid {
+      grid-template-columns: 1fr;
+      display: flex;
+        overflow-x: auto;
+        gap: 1rem;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding: 0 0 1.5rem;
+    }
+    .videoCol{
+      overflow: initial;
+    }
+  }
+  
+  /* Play button */
+  .videoPlayPauseBtn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 2;
+    opacity: 1;
+    transition: opacity 0.2s;
+  }
+  
+  /* Video options */
+  .videoOptions {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.55);
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    padding: 12px 0 8px 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+    z-index: 3;
+  }
+  
+  .videoCol:hover .videoOptions,
+  .videoCol:focus-within .videoOptions {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  
+  .videoOptions button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 4px 10px;
+    border-radius: 8px;
+    transition: background 0.15s;
+  }
+  
+  .videoOptions button:hover,
+  .videoOptions button:focus {
+    background: rgba(255, 255, 255, 0.12);
+  }
+  
+  @media (max-width: 900px) {
+    .videoPlayPauseBtn {
+      opacity: 1;
+    }
+  }
+  

@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /property-file/*
+Disallow: /detail/*
+Disallow: /*?
+
+Sitemap: https://inchbrick.com/sitemap.xml

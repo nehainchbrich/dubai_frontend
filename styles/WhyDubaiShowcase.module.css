@@ -1,0 +1,112 @@
+.whyDubaiArea {
+    position: relative;
+    padding: 100px 0;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    background: #000;
+    overflow: hidden;
+}
+
+.bgWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.bgImage {
+    object-fit: cover !important;
+    opacity: 0.6;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-size: cover !important;
+    height: 100%;
+    background: #000000b8 url('/images/invest.jpg');
+    z-index: 2;
+    background-blend-mode: overlay;
+}
+
+.contentWrapper {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+}
+
+.mainTitle {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 50px;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+}
+
+
+.pointsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px 60px;
+}
+
+.pointItem {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-decoration: none !important;
+    transition: transform 0.3s ease;
+}
+
+.pointItem:hover {
+    transform: translateX(10px);
+}
+
+.iconCircle {
+    width: 50px;
+    height: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--luxury-gold);
+    background: rgba(211, 18, 42, 0.1);
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.pointItem:hover .iconCircle {
+    color: #fff;
+    box-shadow: 0 0 20px rgba(211, 18, 42, 0.4);
+}
+
+.pointTitle {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #fff;
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+
+.ctaBox {
+    margin-top: 60px;
+}
+
+@media (max-width: 991px) {
+    .pointsGrid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .mainTitle {
+        font-size: 2.2rem;
+    }
+}

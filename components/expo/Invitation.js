@@ -1,0 +1,57 @@
+import Image from 'next/image'
+import React from 'react'
+import Link from 'next/link';
+import { ImagePath } from '@/helper/Helper';
+const Invitation = ({ data, section }) => {
+  const description = ImagePath(section?.sectionSubHeading);
+  return (
+    <>
+      <div className='container invitaion_card'>
+        <div className='row'>
+          <div className='col-md-12 text-center'>
+            <h3 className='title_about'>{section?.sectionHeading}</h3>
+            <div className='mb-3' dangerouslySetInnerHTML={{ __html: description }}></div>
+          </div>
+          <div className='col-md-5'>
+            <Link href={'/expo-invitation'} >
+              <Image src={section?.sectionResource} width={500} height={600} alt='Invitation Card' className='img-fluid' />
+            </Link>
+          </div>
+          <div className='col-md-7 my-5'>
+            <Link href={'/expo-invitation'} >
+              <p><Image src={section?.ResourceTwo} width={800} height={600} alt='Invitation Card' className='img-fluid' /></p>
+            </Link>
+            <div className='text-center'>
+              <Link href={'/expo-invitation'} className='btns btn-blue'>Book Your Free VIP Pass →</Link>
+              <Link href={`/blogs/${data[0].blog_link}`} target='_blank' className='btns btn-orange'>Know More →</Link>
+            </div>
+          </div>
+        </div>
+      </div>
+      <style jsx>
+        {`
+      .invitaion_card{
+        border: 2px solid !important;
+        border-image: var(--four-side-border) !important;
+        padding:10px;
+      }
+        .title_about {
+            font-size: 3rem;
+            margin: 2rem;
+            text-transform: capitalize;
+            font-weight: bold;
+        }
+          
+        @media (max-width: 550px) {
+          .title_about {
+              font-size: 1.5rem;
+              margin: 1rem;
+          }
+        }
+      `}
+      </style>
+    </>
+  )
+}
+
+export default Invitation

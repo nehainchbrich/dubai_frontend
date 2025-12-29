@@ -1,0 +1,23 @@
+.whyInch_about h2{
+    font-size: 40px;
+    position: relative;
+    top: 50%;
+}
+.why_logo{
+    /* background-image: url('http://localhost:5000/uploads/common/logo.png'); */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.whyInch_about p{
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+@media (max-width:768px) {
+    .whyInch_about h2{
+        font-size: 40px;
+        position: relative;
+        top: 0;
+    }
+}

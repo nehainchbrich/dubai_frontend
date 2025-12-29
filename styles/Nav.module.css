@@ -1,0 +1,224 @@
+/* =========================
+=============================Nav bar */
+.mobile_nav_btn {
+   display: none;
+}
+
+.searchResultpopup {
+   max-height: 500px;
+   overflow: auto;
+   box-shadow: var(--shadow-100);
+   padding: 1rem;
+   position: absolute;
+   background: #fff;
+   width: 37%;
+   left: 26%;
+   right: 50%;
+}
+
+.contact_details {
+   font-size: 15px;
+   cursor: pointer;
+}
+
+.text_white {
+   color: var(--color-2);
+   cursor: pointer;
+}
+
+.nav_box {
+   display: flex;
+   justify-content: space-between;
+}
+
+.nav_item {
+   padding: 4px;
+   margin: 2px;
+}
+
+.slick_nav {
+   background-color: var(--nav-color);
+   box-shadow: var(--shadow-100);
+   height: auto;
+   transition: background 0.3s ease;
+}
+
+/* .normal_nav{
+   background: var(--tr-color-1);
+ } */
+
+/* .normal_nav{background: var(--tr-color-1);} */
+.normal_nav {
+   background: var(--color-4);
+   transition: background 0.3s ease;
+}
+
+.navbar_nav {
+   list-style: none;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   margin: 0;
+   padding: 0;
+}
+
+.navbar {
+   padding: 0px 0px;
+   transition: all 0.5s ease;
+   height: 70px;
+}
+
+.brand {
+   font-size: 25px;
+   text-transform: uppercase;
+   font-weight: 600;
+   color: var(--color-2);
+   text-decoration: none;
+}
+
+.brand img {
+   width: 100%;
+   height: 50px;
+}
+
+.nav_link {
+   text-transform: uppercase;
+   transition: color 0.3s ease;
+   font-size: 14px;
+   font-weight: 400;
+   position: relative;
+   text-decoration: none;
+}
+
+.nav_link::before {
+   content: '';
+   position: absolute;
+   left: 0;
+   bottom: 0;
+   right: 0;
+   height: 1px;
+   background-color: var(--color-1);
+   transition: all 0.5s ease;
+   transform: scale(0);
+}
+
+.nav_link:hover::before {
+   transform: scale(1);
+}
+
+.nav_link.active::before,
+.navbar .nav_item .nav_link.active:hover::before {
+   transform: scale(1);
+}
+
+
+@media only screen and (min-width: 320px) and (max-width: 768px) {
+   .mobile_nav_btn .close_outline {
+      display: none;
+   }
+
+   .mobile_nav {
+      background-color: var(--brand-color-1);
+   }
+
+   .mobile_nav_icon {
+      position: relative;
+      right: 10px;
+      font-size: 25px;
+   }
+
+   .mobile_nav_btn {
+      display: block;
+      color: var(--color-1);
+      font-size: 25px;
+      z-index: 10001;
+      position: relative;
+   }
+
+   .mobile_nav .mobile_nav_icon {
+      display: none;
+   }
+
+   .mobile_nav .close_outline {
+      display: block;
+   }
+
+   .mobile_nav .close_outline:before {
+      color: var(--color-white)
+   }
+
+   .navbar_nav {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 75%;
+      height: 100vh;
+      background: var(--brand-color-1);
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding-top: 80px;
+      padding-left: 20px;
+      box-shadow: -4px 0 12px rgba(0, 0, 0, 0.25);
+      transform: translateX(100%);
+      opacity: 0;
+      visibility: hidden;
+      transition: transform 0.4s ease, opacity 0.4s ease, visibility 0.4s ease;
+      z-index: 10000;
+   }
+
+   .brand {
+      padding: 1px;
+      margin-top: 3px;
+   }
+
+   .brand img {
+      width: 100%;
+      height: 37px;
+   }
+
+   .text_white {
+      color: var(--color-2);
+      cursor: pointer;
+      position: fixed;
+      top: -3px;
+      right: 26%;
+      font-size: 12px;
+   }
+
+   .mobile_nav .navbar_nav {
+      transform: translateX(0);
+      opacity: 1;
+      visibility: visible;
+   }
+
+   .nav_item {
+      width: 100%;
+      padding: 15px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+   }
+
+   .menu_overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease;
+      z-index: 9999;
+   }
+
+   .mobile_nav .menu_overlay {
+      opacity: 1;
+      visibility: visible;
+   }
+
+   /* Hide search bar on small screens if needed */
+   .searchContainer {
+      display: none;
+   }
+
+}

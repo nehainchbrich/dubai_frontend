@@ -1,0 +1,146 @@
+.ourTeamSection {
+  display: flex;
+  gap: 40px;
+  margin: 0px 0 6px 0;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.teamInfo {
+  flex: 0 0 40%;
+  max-width: 40%;
+}
+
+.teamInfo h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.teamInfo p {
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+  color: #676565;
+}
+
+.teamSlider {
+  flex: 1 1 60%;
+  max-width: 60%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  min-height: 260px;
+}
+
+.teamTrack {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(.4, 0, .2, 1);
+  gap: 18px;
+  width: 100%;
+}
+
+.teamCard {
+  min-width: 188px;
+  max-width: 220px;
+  /* background: #fff; */
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.teamCard img {
+  display: block;
+  width: 100%;
+  border-radius: 15px;
+  height: 180px;
+  object-fit: cover;
+}
+
+.teamCardOverlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  display: flex;
+  border-radius: 15px;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  background: linear-gradient(0deg, rgb(0 0 0 / 43%) 60%, rgba(0, 0, 0, 0.1) 100%);
+  color: #fff;
+  padding: 16px 8px 12px 8px;
+  z-index: 2;
+  text-align: center;
+}
+
+.teamCardOverlay h3,
+.teamCardOverlay p {
+  margin: 0;
+  padding: 0;
+}
+
+.teamBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(34, 34, 34, 0.6);
+  color: #fff;
+  border: none;
+  font-size: 2rem;
+  padding: 0 12px;
+  cursor: pointer;
+  z-index: 2;
+  border-radius: 50%;
+  user-select: none;
+  transition: background 0.2s;
+}
+
+.left {
+  left: 0;
+}
+
+.right {
+  right: 0;
+}
+
+.teamBtn:hover {
+  background: rgba(255, 152, 0, 0.8);
+}
+
+@media (max-width: 1100px) {
+  .ourTeamSection {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .teamInfo,
+  .teamSlider {
+    max-width: 100%;
+    flex: 1 1 100%;
+  }
+
+  .teamSlider {
+    min-height: 220px;
+  }
+}
+
+@media (max-width: 700px) {
+
+  .teamCard,
+  .teamCard img {
+    min-width: 60vw;
+    max-width: 60vw;
+  }
+
+  .teamTrack {
+    gap: 10px;
+  }
+
+  .teamInfo h2 {
+    font-size: 1.5rem;
+  }
+}

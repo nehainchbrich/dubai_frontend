@@ -1,0 +1,14 @@
+.userDetailsCard{
+    min-height: 70vh;
+    height: 100%;
+    background: var(--color-1);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.detailfrm{
+    width: 80%;
+    color: var(--brand-color-1);
+}

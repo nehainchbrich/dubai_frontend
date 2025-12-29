@@ -1,0 +1,17 @@
+.card{
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    box-shadow: var(--bs-box-shadow) !important;
+}
+
+.img_fluid{
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    margin: 2px;
+}
+.mentor{
+    font-size: 1rem;
+
+}

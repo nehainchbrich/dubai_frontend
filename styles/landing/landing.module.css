@@ -1,0 +1,124 @@
+.brand_logo{
+    width: 100%;
+    min-height: 300px;
+    height: 100%;
+}
+.inch{
+    width: 100%;
+    min-height: 315px;
+    height: 100%;
+    display: flex;
+    place-items: center;
+    padding: 15px;
+    justify-content: center;
+    background: #fff;
+    border-radius: 10px;
+}
+.brand_logo a img{
+    width: 100%;
+}
+.portfolio_item{
+    margin: 0px 0;
+    padding: 0px;
+}
+
+.portfolio_item img {
+    width: 100%;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+}
+.portfolio_item li {
+    font-size: 1rem;
+    padding: 0px;
+    margin: 10px;
+}
+.portfolio_item h2{
+    font-size: 2rem;
+    font-weight: 700;
+}
+.portfolio_item p{
+    font-size: 1rem;
+    padding: 0px;
+    margin: 10px;
+}
+.finger_clid {
+    font-size: 2rem;
+    animation: slideLeftToRight .5s infinite;
+	position: relative;
+    left: -25px;
+    top: 8px;
+    color: var(--color-1);
+}
+.video_section video{
+    width: 100%;
+}
+.payment img{
+    filter: blur(3px);
+    width: 100%;
+    cursor: pointer;
+}
+.ads_image img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
+.ads_box {
+    width: 100%;
+    min-height: 250px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.ad_content {
+    padding: 10px;
+}
+.ad_content a {
+    color: var(--brand-color-1)!important;
+}
+.contact_item p span{
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: block;
+}
+@keyframes slideLeftToRight {
+	0% {
+	  transform: translateX(-10%);
+	}
+	50% {
+		transform: translateX(30%);
+	  }
+	70% {
+	  transform: translateX(50%);
+	}
+  }
+
+
+@media (max-width: 580px) {
+    .ads_box {
+        padding: 5px;
+        display: block;
+    }
+
+    .ads_image img {
+        max-width: 100%;
+    }
+
+    .ad_content {
+        text-align: left;
+        padding: 5px;
+    }
+
+    .ad_content h3,
+    .ad_content p {
+        font-size: 0.9rem;
+    }
+
+    .ad_content .btns {
+        font-size: 0.8rem;
+    }
+}

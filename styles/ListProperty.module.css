@@ -1,0 +1,31 @@
+.list_item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: .5rem;
+    border-bottom: 1px solid var(--tr-color-2);
+    color: var(--brand-color-1);
+  }
+
+  .list_item img {
+    width: 125px;
+    height: 125px;
+    margin-right: 8px;
+    object-fit: fill;
+  }
+
+  .list_item .content {
+    flex-grow: 1;
+  }
+
+  .list_item .title {
+    color: var(--brand-color-1);
+    font-size: 14px;
+  }
+
+  .list_item .text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--brand-color-1);
+    font-size: 12px;
+  }

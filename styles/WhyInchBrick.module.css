@@ -1,0 +1,41 @@
+.card {
+  width: 100%;
+  transition: box-shadow 0.3s;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  height: auto;
+  border-radius: 10px;
+}
+.card i{
+  font-size: 3rem;
+  padding: 10px;
+  
+}
+.card:hover {
+  box-shadow: var(--shadow-blue);
+}
+.card:hover i{
+  color: var(--brand-color-2);
+}
+.card_content {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.card_title {
+  font-weight: bolder;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.card_text {
+  margin-top: 10px;
+  font-size: 16px;
+  text-align: center;
+}
+

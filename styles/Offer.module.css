@@ -1,0 +1,25 @@
+.offer_img img{
+    width: 100%;
+}
+.offer_content{
+    display: grid;
+    justify-content: end;
+    align-items: center;
+}
+.offer_content h2{
+    font-size: 35px;
+    font-weight: 900;
+    text-transform: uppercase;
+    filter: drop-shadow(8px 4px 6px black);
+    color:#f5ec86;
+    line-height: 1.8;
+}
+.offer_content p{
+    font-size: 20px;
+    line-height: 2;
+    font-family: math;
+}
+
+.offer_terms a{
+    font-size: 12px;
+}

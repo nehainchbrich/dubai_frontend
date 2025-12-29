@@ -1,0 +1,668 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap')
+
+/* Global styles
+$global-base-url: 'https://cdn.inchbrick.com/'
+\:root
+  --brand-color-1:#0e0c0c
+  --brand-color-2:#ff9800
+  --primary-red: #d3122a
+  --nav-color:#003868
+  --luxury-gold: #c5a059
+  --color-1:#fcf8ff
+  --color-white:#fff
+  --color-4:#000
+  --color-2:#14ae5c
+  --color-3:#e61d2b
+  --color-5:#25408f
+  --star-color:#ffce00
+  --tr-color-1:#0c0c0c5c
+  --tr-color-2:#00aaa92b        
+  --tr-color-3:#111010cf
+  --border-url:url('#{$global-base-url}background/golden-line.webp')
+  --flag-url:url('#{$global-base-url}background/flag.webp')
+  --two-side-border:var(--border-url) 8 0 8 0 stretch
+  --top-border:var(--border-url) 100% 0 0 0 / 2px 0 0 0
+  --one-side-border:var(--border-url) 100% 0 0 0/2px 0 0 0
+  --bottom-border:var(--border-url) 2px 0 0 0 / 100% 0 0 0 stretch
+  --shadow-blue:0 0 15px 7px var(--brand-color-2)
+  --gradient:linear-gradient(to right, var(--color-1) 40%, var(--brand-color-2) 60%)
+  --shadow-100:0 4px 8px 0 rgba(0, 0, 0, 0.2)
+  --shadow-200:0 8px 16px 0 rgba(0, 0, 0, 0.2)
+  --shadow-300:0 2px 4px 0 rgba(141, 138, 138, 0.688)
+  --gradient-1:radial-gradient(at 18% 99%, #151515 0px, transparent 50%) repeat scroll 0% 0%, radial-gradient(at 97% 8%, #161516 0px, transparent 50%) repeat scroll 0% 0%, radial-gradient(at 79% 82%, #130000 0px, transparent 50%) repeat scroll 0% 0%, radial-gradient(at 96% 10%, #1b1e1b 0px, #230d0d 50%) repeat scroll 0% 0%, radial-gradient(at 42% 20%, #e61d2b 0px, #e00e0ea8 50%) repeat scroll 0% 0%, radial-gradient(at 4% 49%, #0b1f40 0px, transparent 50%) repeat scroll 0% 0%, rgba(0, 0, 0, 0) radial-gradient(at 57% 33%, #e61d2b 0px, #090909 50%) repeat scroll 0% 0%
+
+*
+  margin: 0
+  padding: 0
+
+  .inquiry-close
+    position: absolute
+    right: 0
+    padding: .8rem 1rem
+    z-index: 9
+
+
+img 
+   object-fit: cover
+body
+  font-family: "Inter",system-ui,sans-serif !important
+  font-size: 14px
+  font-weight: 400
+  overflow-x: hidden
+  line-height: 1.5
+  background: url('../public/images/background.png')
+  background-position: bottom
+  background-size: cover
+  background-attachment: fixed
+
+.sticky-top
+  background-color: var(--color-4)
+  box-shadow: var(--shadow-100)
+
+table
+  width: 100%
+  border-collapse: collapse
+  margin: 20px 0
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05)
+
+th, td
+    padding: 12px 15px
+    border: 1px solid var(--brand-color-2)
+    text-align: left
+
+th
+  background-color: var(--color-5)
+
+.modal-width-small
+  width: 400px
+  max-width: 100%
+
+.width-full
+  width:100%
+
+
+.desc_img
+  width: 100%
+    
+span.required 
+    color: red
+
+.fas.fa-star
+  color: var(--star-color)
+
+nav li a
+    color: var(--color-1) !important
+
+a
+  text-decoration: none !important
+  color: var(--color-4  ) !important
+
+a[title] 
+  position: relative
+
+.footer-bottom
+  background: #181818
+  padding: 1rem
+
+.footer-bottom p
+  margin-bottom: 0
+
+footer ul li a
+    color: #f1e8e8 !important
+          
+a[title]::before 
+  content: attr(title)
+  position: absolute
+  background-color: #333 
+  color: #fff
+  padding: 6px 10px
+  border-radius: 4px
+  white-space: nowrap
+  font-size: 20px
+  font-weight:bolder
+  top: -30px
+  left: 50%
+  transform: translateX(-50%)
+  opacity: 0
+  visibility: hidden
+  transition: opacity 0.3s, visibility 0.3s
+
+a[title]:hover::before 
+  opacity: 1
+  visibility: visible
+
+h2
+  font-size: 25px
+
+h3
+  font-size: 20px
+
+.modal-close
+  box-shadow: none
+  border: none
+
+.modal-header
+  justify-content: space-between
+
+.btns
+  color: var(--color-4) !important
+  padding: 5px 24px
+  text-align: center
+  text-decoration: none
+  display: inline-block
+  font-size: 16px
+  cursor: pointer
+  text-transform: uppercase
+  border-radius: 25px
+  box-shadow: var(--shadow-100)
+  transition: transform 0.2s, box-shadow 0.2s
+
+  &:hover
+    transform: scale(1.05)
+    box-shadow: var(--shadow-200)
+
+
+  &:active
+    transform: scale(0.95)
+    box-shadow: var(--shadow-100)
+  
+.btn-orange
+  &.active
+    background: var(--brand-color-2)
+
+  &:hover
+    background: var(--brand-color-2)
+    color: var(--color-1)
+
+.btn-blue
+  background: var(--primary-red)
+  color: var(--color-1) !important
+  font-weight: 900
+  font-size: 14px !important
+
+  &:hover
+    border: 1px solid var(--brand-color-2)
+    color: var(--color-1)
+
+.btn-100
+  width: 100%
+
+.simple-btn
+  color: var(--brand-color-2)
+  cursor: pointer
+
+.pswp__caption__center
+  text-align: center !important
+  text-transform: uppercase !important
+
+button
+  background: transparent
+
+.video-container video
+  width:100%
+  height:300px
+
+.react-datepicker__month-container
+  float: none !important
+
+.iti 
+    position: relative
+    display: block !important
+    color: var(--brand-color-1) !important
+
+.modal-content
+  background: #fff !important
+  display: flow-root !important
+
+.fa-times:before
+  color: #000
+
+  .fa-times
+    color: var(--color-1)
+    font-size: 30px
+    position: absolute
+    right: 8px
+    top: 0px
+
+.verified
+  position: absolute
+  top: 2px
+  right: 2px
+  color: var(--color-1)
+  background: var(--brand-color-2)
+  font-size: 12px
+  padding: 5px
+  border-radius: 5px
+  font-weight: 400
+  font-style: normal
+
+.view-blog
+  color: #fff !important
+
+.logRegFrm
+  padding: 10px
+
+  label
+    display: none
+
+input, textarea, select
+  overflow: visible
+  border-radius: 25px !important
+
+  
+.expo_frm
+  background: url('#{$global-base-url}common/bg-home-5.jpeg')
+  width: 100%
+  min-height: 100vh
+  height: 100%
+  display: flex
+  place-items: center
+
+.section
+  width: 100%
+  height: 100%
+  padding: 3rem 0 1rem 0
+
+  &.service::before, &.offplan::before, &.location::before, &.why-inchbrick::before,&.trigger-frm::before
+    content: ""
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    z-index: -1
+
+  &.service::before
+    background-image: url('#{$global-base-url}background/dubai-pic.webp')
+    background-repeat: no-repeat
+    background-size: cover
+    background-position: center center
+    background-attachment: fixed
+    opacity: 0.6
+
+  &.offplan::before
+    background-image: url('#{$global-base-url}background/bg-home.webp')
+    background-repeat: no-repeat
+    background-size: cover
+    background-position: center center
+    background-attachment: fixed
+    opacity: 0.3
+
+
+
+  &.why-inchbrick::before
+    background-image: url('#{$global-base-url}background/bg-home-3.webp')
+    background-repeat: no-repeat
+    background-size: cover
+    background-position: center center
+    opacity: 0.3
+
+  &.trigger-frm::before
+      background-image: url('#{$global-base-url}common/bg-10.svg')
+      background-repeat: no-repeat
+      background-size: cover
+      background-position: center center
+      background-attachment: fixed
+      opacity: 0.3
+
+  &.contact-form
+    background-image: url('#{$global-base-url}background/contact-middle-bg.jpg')
+    background-repeat: no-repeat
+    background-size: cover
+    background-position: center center
+
+  &.tourism
+    background-image: url('#{$global-base-url}background/tourism.webp')
+    background-repeat: no-repeat
+    background-size: cover
+    background-position: left
+    cursor: pointer
+
+  .title
+    text-transform: uppercase
+    display: inline-block
+    padding-bottom: 5px
+    background-size: 70% 3px
+    background-repeat: no-repeat
+    background-position: bottom
+    font-weight: bolder
+
+.property-type
+  background: #e7e7e7
+
+.statics_banner
+    color: #fff
+    text-align: center
+    width: 100%
+    height: 100%
+    background: url('#{$global-base-url}common/dubai-pic.webp')
+    display: grid
+    place-items: center
+    object-fit: fill
+
+.dubai_market::before 
+    content: ""
+    background: url('#{$global-base-url}common/dubai-pic.webp')
+    width: 100%
+    position: absolute
+    height: 100%
+    top: 0
+    object-fit:fill
+    filter: brightness(0.5)
+    z-index:-1
+
+.skiptranslate iframe
+  display: none !important
+
+.react-datepicker
+    width:100%
+    height:400px
+
+.react-datepicker__day-name, .react-datepicker__day, .react-datepicker__time-name
+    width: 3.560rem!important
+    margin: 1rem!important
+
+.react-datepicker__week
+    font-size: 16px
+    
+iframe#\:1\.container, .skiptranslate.goog-te-gadget span
+  display: none
+
+div#\:0\.targetLanguage
+  position: relative
+  top: 7px !important
+
+select.goog-te-combo
+  padding: 5px
+  width: 135px
+  margin: 0
+
+.goog-te-gadget
+  color: transparent !important
+
+.modal 
+  background: var(--tr-color-3)
+
+.modal-body
+  flex: 0 1 auto
+
+.feature .owl-next
+    background: var(--color-1)!important
+    border-radius: 100%!important
+    width: 15px!important
+    height: 15px!important
+    position: relative!important
+    top: 5px!important
+
+.feature .owl-prev
+    background: var(--color-1)!important
+    border-radius: 100%!important
+    width: 15px!important
+    height: 15px!important
+    position: relative!important
+    top: 5px!important
+
+.main-service
+  background: var(--color-5) var(--background-1)
+  background-size: cover
+
+.property-type .owl-item.active
+  padding: 25px 10px
+
+.feature .owl-item.active
+  padding: 5px 5px
+
+.feature_owl .owl-nav.disabled
+  display: block !important
+  margin-top: 5px
+  cursor: pointer
+
+  .owl-prev, .owl-next
+    background: var(--color-1) !important
+    width: 15px !important
+    color: #00800008 !important
+    height: 15px
+    border-radius: 100% !important
+
+.badge
+  font-size: 8px !important
+  position: absolute
+  top: 0
+  right: 0
+  animation: badge 1s ease-in-out infinite
+
+.error
+  color: var(--color-3)
+
+
+.trigger_frm_sec form 
+    display: flex
+    width: 100%
+.trigger_frm_sec form .mb-3
+  width:100%
+  margin:10px
+.trigger_frm_sec form button
+  width: 40%
+  margin: 30px
+/*==================@keyframes ==============
+@-webkit-keyframes pulse_border
+  0%
+    -webkit-transform: translate(-50%, -50%) translateZ(0) scale(1)
+    -moz-transform: translate(-50%, -50%) translateZ(0) scale(1)
+    -ms-transform: translate(-50%, -50%) translateZ(0) scale(1)
+    -o-transform: translate(-50%, -50%) translateZ(0) scale(1)
+    transform: translate(-50%, -50%) translateZ(0) scale(1)
+    opacity: 0.7
+
+  100%
+    -webkit-transform: translate(-50%, -50%) translateZ(0) scale(1.5)
+    -moz-transform: translate(-50%, -50%) translateZ(0) scale(1.5)
+    -ms-transform: translate(-50%, -50%) translateZ(0) scale(1.5)
+    -o-transform: translate(-50%, -50%) translateZ(0) scale(1.5)
+    transform: translate(-50%, -50%) translateZ(0) scale(1.5)
+    opacity: 0.1
+
+@-moz-keyframes pulse_border
+  0%
+    -webkit-transform: translate(-50%, -50%) translateZ(0) scale(1)
+    -moz-transform: translate(-50%, -50%) translateZ(0) scale(1)
+    -ms-transform: translate(-50%, -50%) translateZ(0) scale(1)
+    -o-transform: translate(-50%, -50%) translateZ(0) scale(1)
+    transform: translate(-50%, -50%) translateZ(0) scale(1)
+    opacity: 0.7
+
+  100%
+    -webkit-transform: translate(-50%, -50%) translateZ(0) scale(1.5)
+    -moz-transform: translate(-50%, -50%) translateZ(0) scale(1.5)
+    -ms-transform: translate(-50%, -50%) translateZ(0) scale(1.5)
+    -o-transform: translate(-50%, -50%) translateZ(0) scale(1.5)
+    transform: translate(-50%, -50%) translateZ(0) scale(1.5)
+    opacity: 0.1
+
+@-o-keyframes pulse_border
+  0%
+    -webkit-transform: translate(-50%, -50%) translateZ(0) scale(1)
+    -moz-transform: translate(-50%, -50%) translateZ(0) scale(1)
+    -ms-transform: translate(-50%, -50%) translateZ(0) scale(1)
+    -o-transform: translate(-50%, -50%) translateZ(0) scale(1)
+    transform: translate(-50%, -50%) translateZ(0) scale(1)
+    opacity: 0.7
+
+  100%
+    -webkit-transform: translate(-50%, -50%) translateZ(0) scale(1.5)
+    -moz-transform: translate(-50%, -50%) translateZ(0) scale(1.5)
+    -ms-transform: translate(-50%, -50%) translateZ(0) scale(1.5)
+    -o-transform: translate(-50%, -50%) translateZ(0) scale(1.5)
+    transform: translate(-50%, -50%) translateZ(0) scale(1.5)
+    opacity: 0.1
+
+@keyframes pulse_border
+  0%
+    -webkit-transform: translate(-50%, -50%) translateZ(0) scale(1)
+    -moz-transform: translate(-50%, -50%) translateZ(0) scale(1)
+    -ms-transform: translate(-50%, -50%) translateZ(0) scale(1)
+    -o-transform: translate(-50%, -50%) translateZ(0) scale(1)
+    transform: translate(-50%, -50%) translateZ(0) scale(1)
+    opacity: 0.7
+
+  100%
+    -webkit-transform: translate(-50%, -50%) translateZ(0) scale(1.5)
+    -moz-transform: translate(-50%, -50%) translateZ(0) scale(1.5)
+    -ms-transform: translate(-50%, -50%) translateZ(0) scale(1.5)
+    -o-transform: translate(-50%, -50%) translateZ(0) scale(1.5)
+    transform: translate(-50%, -50%) translateZ(0) scale(1.5)
+    opacity: 0.1
+
+@keyframes badge
+  0%
+    transform: scale(1)
+    background: var(--color-3)
+
+  50%
+    transform: scale(1.05)
+    background-color: var(--color-2)
+
+  100%
+    transform: scale(1)
+    background-color: var(--color-3)
+
+/* Currency flag setup
+
+.custom-dropdown
+  position: relative
+  cursor: pointer
+  width: 60px
+  border-radius: 25px
+  background: white
+  color: var(--brand-color-1)
+
+.selected-option
+  display: flex
+  align-items: center
+  padding: 2px 3px
+
+.selected-flag, .flag
+  width: 22px
+  height: 15px
+  background-image: var(--flag-url)
+
+  /* Replace with the actual path to your image
+  background-repeat: no-repeat
+  display: inline-block
+  margin-right: 3px
+
+.selected-flag
+  background-position: 0 0
+
+  /* Position of the selected flag in the image
+
+.flag-AED
+  background-position: -44px 3px
+
+  /* Position of AED flag in the image
+
+.flag-USD
+  background-position: -5263px 0px
+
+  /* Position of USD flag in the image
+
+.flag-CNY
+  background-position: -1049px 0px
+
+  /* Position of CNY flag in the image
+
+.flag-INR
+  background-position: -2413px 0px
+
+  /* Position of INR flag in the image
+
+.flag-EUR
+  background-position: -5065px 0px
+
+  /* Position of EUR flag in the image
+
+.flag-GBP
+  background-position: -1775px 3px
+
+  /* Position of GBP flag in the image
+
+.options-list
+  list-style: none
+  margin: 0
+  padding: 0
+  position: absolute
+  top: 100%
+  left: 0
+  display: none
+  z-index: 1
+  background-color: var(--color-1)
+  border: 1px solid var(--color-1)
+  border-radius: 4px
+  box-shadow: var(--shadow-300)
+  color: var(--brand-color-1)
+
+.footerNav
+  display: none
+
+.pswp__img
+  border: 0 !important
+
+.pswp__bg
+  background: #000000c4 !important
+
+.option
+  padding: 8px
+  display: flex
+  align-items: center
+  cursor: pointer
+
+  &:hover
+    background-color: #f0f0f0
+.hide
+  display: none !important
+@media screen and (max-width: 768px) 
+  .footer-bottom
+    padding-bottom: 4.5rem
+  .trigger_frm_sec form 
+    display: block
+    width: 100%
+  .footerNav
+    display: flex
+    justify-content: space-between
+    background: #000000
+    padding: 1rem
+    box-shadow: 0 -1px 16px #0000002b
+    position: fixed
+    bottom: 0
+    width: 100%
+    z-index: 999       
+  .footerNav span a
+     color: #fff !important
+  .margin_phone
+    margin: 0 -15px
+  .mobile_map
+    width: fit-content
+    display: flex
+    align-items: center
+  .trigger_frm_sec form .mb-3
+    width:100%
+    margin:10px
+  .trigger_frm_sec form button
+    width: 100%
+    margin: 0
+  .property-type .owl-item.active
+    padding: 25px 0px
+  .navbar>.container, .navbar>.container-fluid, .navbar>.container-lg, .navbar>.container-md, .navbar>.container-sm, .navbar>.container-xl, .navbar>.container-xxl
+    flex-wrap: initial
+  .react-datepicker
+      width:100%
+      height:400px
+  .react-datepicker__day-name, .react-datepicker__day, .react-datepicker__time-name
+    width: auto!important
+    margin: 0.9rem!important
+  .react-datepicker__week
+    font-size: 16px
+@media screen and (min-width: 1025px) and (max-width: 1280px) 
+  .react-datepicker__day-name, .react-datepicker__day, .react-datepicker__time-name
+    width: 1.7rem!important
+    margin: 1rem !important

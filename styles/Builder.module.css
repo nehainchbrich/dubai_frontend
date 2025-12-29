@@ -1,0 +1,344 @@
+/* --- "Opposing Bricks" Builder Style --- */
+.builderSection {
+    position: relative;
+    padding: 3rem 0;
+    overflow: hidden;
+    background: #fff;
+    /* Clean White */
+    border-top: 1px solid #f5f5f5;
+}
+
+.callto_area {
+    position: relative;
+    padding: 3rem;
+    background: url('/images/invest.jpg') center center/cover no-repeat;
+    color: #fff;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(20, 20, 30, 0.85);
+    z-index: 0;
+}
+
+.zIndx {
+    z-index: 99;
+    position: relative;
+}
+
+.listItem a {
+    color: #fff !important;
+}
+
+/* Header */
+.headerWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 4rem;
+    padding: 0 15px;
+    position: relative;
+}
+
+.headerWrapper::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 15px;
+    width: 60px;
+    height: 3px;
+    background: #FFB700;
+    /* Gold accent */
+}
+
+.title {
+    font-size: 2.5rem;
+    color: #111;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    margin: 0;
+    line-height: 1;
+}
+
+/* Hide extra content as requested */
+/* .subTitle {
+    display: none;
+} */
+
+.viewAllBtn {
+    color: #111;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-decoration: none;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 2px;
+    transition: all 0.3s ease;
+}
+
+.viewAllBtn:hover {
+    color: #FFB700;
+    border-color: #FFB700;
+}
+
+/* Brick Wall Container */
+.wallContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* Gap between rows */
+    position: relative;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    /* Full width breakout */
+}
+
+.wallContainer::before,
+.wallContainer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 150px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.wallContainer::before {
+    left: 0;
+    background: linear-gradient(to right, #fff, transparent);
+}
+
+.wallContainer::after {
+    right: 0;
+    background: linear-gradient(to left, #fff, transparent);
+}
+
+/* Rows */
+.brickRow {
+    display: flex;
+    width: max-content;
+    gap: 20px;
+    /* Gap between bricks */
+}
+
+.scrollLeft {
+    animation: scrollLeft 40s linear infinite;
+}
+
+.scrollRight {
+    animation: scrollRight 40s linear infinite;
+}
+
+/* Pause on Hover */
+.wallContainer:hover .brickRow {
+    animation-play-state: paused;
+}
+
+/* Brick Item */
+.brick {
+    width: 240px;
+    height: 110px;
+    background: #fdfdfd;
+    border: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.01);
+    position: relative;
+}
+
+.brick::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 3px;
+    height: 0%;
+    background: #FFB700;
+    transition: height 0.3s ease;
+}
+
+.brick:hover {
+    background: #fff;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+    border-color: transparent;
+    z-index: 10;
+}
+
+.brick:hover::before {
+    height: 100%;
+}
+
+.logoImg {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: grayscale(100%) opacity(0.6);
+    transition: all 0.3s ease;
+}
+
+.brick:hover .logoImg {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Animations */
+@keyframes scrollLeft {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes scrollRight {
+    0% {
+        transform: translateX(-50%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .headerWrapper {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .brick {
+        width: 160px;
+        height: 90px;
+    }
+
+    /* ----- Why Invest in Dubai Section ----- */
+    .callto_area {
+        position: relative;
+        padding: 8rem 0;
+        background-image: url('/images/dubai_background.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        color: #fff;
+        overflow: hidden;
+    }
+
+    .callto_area .overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.55);
+        z-index: 1;
+    }
+
+    .callto_area .container {
+        position: relative;
+        z-index: 2;
+    }
+
+    .callto_area h2 {
+        font-size: 2.8rem;
+        font-weight: 800;
+        margin-bottom: 2rem;
+        text-align: center;
+        color: #ffb700;
+    }
+
+    .callto_area .list {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .callto_area .list p {
+        font-size: 1.1rem;
+        line-height: 1.5;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .callto_area .list p a {
+        color: #fff;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+    }
+
+    .callto_area .list p a:hover {
+        color: #ffb700;
+    }
+
+    .callto_area .btns.btn-blue {
+        background: #ffb700;
+        color: #000;
+        padding: 0.8rem 1.5rem;
+        border-radius: 4px;
+        font-weight: 600;
+        transition: background 0.3s ease;
+    }
+
+    .callto_area .btns.btn-blue:hover {
+        background: #e6a200;
+    }
+
+    /* ----- Glassmorphism Card ----- */
+    .glassCard {
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(12px);
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 2rem;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    }
+
+    /* Gradient text for headings */
+    .gradientText {
+        background: linear-gradient(90deg, #ffb700, #f7c35f);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        color: transparent;
+    }
+
+    /* Animated list items */
+    .listItem {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        opacity: 0;
+        animation: fadeInUp 0.6s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(12px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+}

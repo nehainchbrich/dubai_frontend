@@ -1,0 +1,233 @@
+.filter{
+    width: 100%;
+    height: auto;
+}
+.filter ul{
+    list-style: none;
+}
+.filter ul li{
+    display: inline-block;
+    cursor: pointer;
+    padding: 10px;
+}
+.listCard a.compare_btn{
+  padding: .5rem;
+  color: var(--color-white) !important;
+  background: var(--brand-color-2);
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+
+}
+.filter li.active{
+    color:var(--brand-color-2);
+}
+
+/* List view Styles */
+
+.listCard{
+    width: 100%;
+    height: 300px;
+    box-shadow: var(--shadow-200);
+    cursor: pointer;
+    /* border: 4px double var(--brand-color-2); */
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    background: var(--color-1);
+    color: var(--brand-color-1);
+}
+.listCard a{
+  color: var(--brand-color-1)!important;
+}
+.listCard:hover .tags{
+  opacity: 1;
+}
+.listCard .tags{
+  background: var(--brand-color-2);
+  position: absolute;
+  top: 0;
+  border-radius: 6px;
+  padding: 3px;
+  font-size: 12px;
+  left: 0px;
+  overflow: hidden;
+  box-shadow: var(--shadow-200);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.listCard .img_container{
+    width: 45%;
+    overflow: hidden; /* Ensures the zoomed image doesn't overflow */
+    position: relative;
+}
+.listCard .img_container img{
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease-in-out;
+}
+.listCard .img_container:hover img {
+  transform: scale(1.1); /* Zoom in effect */
+}
+.listCard .content {
+    width: 55%;
+    padding: 20px;
+}
+.listCard .content h4{
+    font-size: 18px;
+    color: var(--brand-color-1)!important;
+    font-weight: bolder;
+}
+.content i {
+  color: var(--brand-color-2)!important;
+}
+.listCard .content h3{
+  font-size: 20px;
+  color: var(--brand-color-2)!important;
+  font-weight: bolder;
+}
+.listCard .top_list,.bottom_list{
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+/* .left_card{
+  padding: 15px;
+  border-left: 2px solid var(--brand-color-2);
+} */
+.listCard .content .price_btn{
+  color: var(--color-3)!important;
+}
+
+/* Grid view styles */
+
+.gridCard{
+    width: 100%;
+    height: 550px;
+    box-shadow: var(--shadow-200);
+    cursor: pointer;
+    margin-top: 10px;
+    perspective: 1000px;
+}
+.gridCard .tags{
+    background: var(--brand-color-2);
+    position: absolute;
+    top: 0;
+    border-radius: 6px;
+    padding: 3px;
+    font-size: 12px;
+    left: 0px;
+    overflow: hidden;
+    box-shadow: var(--shadow-200);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+  .gridCard .card_box{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-style: preserve-3d;
+}
+.gridCard .frent_card, .back_card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border: 2px solid;
+    border-image: var(--four-side-border);
+  }
+  
+  .gridCard .frent_card img{
+    width: 100%;
+    height: 55%;
+}
+.gridCard .content{
+    padding: 10px;
+}
+.gridCard .content h3{
+    font-size: 25px;
+    font-weight: bolder;
+}
+.gridCard .top_list,.bottom_list{
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+.gridCard .back_card {
+    transform: rotateY(180deg);
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Add this line */
+  }
+.gridCard:hover .card_box {
+    transform: rotateY(180deg);
+  }
+  .gridCard:hover .tags {
+    opacity: 1;
+  }
+  .gridCard .inquiry_icons{
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+  }
+  .gridCard .inquiry_icons span{
+      border: 1px solid;
+      border-image: var(--four-side-border);
+      width: 100%;
+      text-align: center;
+      padding: 0;
+      font-size: 22px;
+  }
+
+  @media (max-width: 768px) {
+    .listCard {
+      flex-direction: column;
+      height: auto;
+    }
+  
+    .img_container {
+      width: 100%;
+      order: 1;
+    }
+  
+    .content {
+      width: 100%;
+      padding: 20px;
+      order: 1;
+    }
+     .filter ul li{
+      padding: 0 .2rem 0 0;
+     }
+     .filter ul{
+      display: flex;
+      padding-left: 0;
+      align-items: center;
+     }
+  }
+
+  @media (max-width: 992px) {
+    .listCard {
+      flex-direction: column;
+      height: auto;
+    }
+  
+    .listCard .img_container {
+      width: 100%;
+      order: 1;
+    }
+  
+    .listCard .content {
+      width: 100%;
+      padding: 20px;
+      order: 1;
+    }
+  }

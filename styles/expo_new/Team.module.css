@@ -1,0 +1,272 @@
+/* --- "Noir Cinematic Profile" Style --- */
+
+.teamSection {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  /* Cleaner, modern font if available, else falls back */
+  padding-block: 6rem;
+  text-align: center;
+  width: 100%;
+  background: #0a0a0a;
+  /* Noir Black */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background Texture? Optional */
+.teamSection::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.teamSection h2 {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 600;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  /* Wide spacing for luxury */
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.teamSection h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #C6A87C;
+  /* Muted Premium Gold */
+  margin: 20px auto 0 auto;
+}
+
+.lead {
+  font-size: 1rem;
+  color: #888;
+  max-width: 550px;
+  margin: 0 auto 5rem auto;
+  font-weight: 300;
+  line-height: 1.8;
+  letter-spacing: 0.5px;
+}
+
+.bgWatermark {
+  display: none;
+  /* Removing watermark for cleaner look */
+}
+
+/* Slider Wrappers */
+.sliderWrapper {
+  position: relative;
+  width: 90%;
+  max-width: 1300px;
+  margin: 0 auto;
+  z-index: 2;
+  padding: 20px 0;
+}
+
+.teamSliderTrack {
+  display: flex;
+  gap: 0;
+  transition: transform 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+  /* Expo ease */
+}
+
+.teamCard {
+  flex: 0 0 33.3333%;
+  padding: 0 15px;
+  /* Spacing between cards */
+  box-sizing: border-box;
+  perspective: 1000px;
+}
+
+/* --- THE NOIR CARD --- */
+.card {
+  position: relative;
+  height: 550px;
+  /* Tall, slim profile */
+  background: #111;
+  overflow: hidden;
+  /* border: 1px solid #222; */
+  transition: all 0.5s ease;
+}
+
+/* Image Handling */
+.profImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  filter: grayscale(100%) brightness(0.7);
+  /* Dark & Moody */
+  transition: all 0.6s ease;
+}
+
+/* Hover Interaction */
+.card:hover .profImg,
+.teamCard.active .card .profImg {
+  filter: grayscale(0%) brightness(1);
+  transform: scale(1.05);
+}
+
+.card:hover,
+.teamCard.active .card {
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
+  /* border-color: #C6A87C; */
+}
+
+/* Floating Border Frame Effect */
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 10px;
+  border: 1px solid rgba(198, 168, 124, 0.3);
+  /* Gold Frame */
+  opacity: 0;
+  transition: all 0.4s ease;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.card:hover::after,
+.teamCard.active .card::after {
+  opacity: 1;
+  inset: 15px;
+  /* Shrinks in slightly */
+}
+
+/* Content Panel */
+.cardContent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 40px 30px;
+  background: linear-gradient(to top, #000 0%, rgba(0, 0, 0, 0.8) 60%, transparent 100%);
+  z-index: 3;
+  text-align: center;
+  transform: translateY(20px);
+  transition: transform 0.4s ease;
+}
+
+.card:hover .cardContent,
+.teamCard.active .cardContent {
+  transform: translateY(0);
+}
+
+.cardContent h3 {
+  font-size: 1.6rem;
+  color: #fff;
+  margin: 0 0 8px 0;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.cardContent p {
+  color: #C6A87C;
+  /* Muted Gold */
+  font-size: 0.85rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0;
+  opacity: 0.8;
+  position: relative;
+  display: inline-block;
+  padding-top: 10px;
+  border-top: 1px solid rgba(198, 168, 124, 0.3);
+}
+
+/* Nav Buttons (Minimalist Arrows) */
+.teamBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  color: #fff;
+  width: 50px;
+  height: 80px;
+  cursor: pointer;
+  font-size: 24px;
+  z-index: 10;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  opacity: 0.5;
+}
+
+.teamBtn:hover {
+  opacity: 1;
+  transform: translateY(-50%) scale(1.2);
+  color: #C6A87C;
+}
+
+.teamBtn.prev {
+  left: -50px;
+}
+
+/* Outside the wrapper */
+.teamBtn.next {
+  right: -50px;
+}
+
+/* Call to Action Button */
+.btnClass {
+  display: inline-block;
+  margin-top: 4rem;
+  padding: 15px 40px;
+  background: transparent;
+  color: #fff;
+  border: 1px solid #444;
+  font-weight: 500;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 5;
+}
+
+.btnClass:hover {
+  border-color: #C6A87C;
+  color: #C6A87C;
+  background: rgba(198, 168, 124, 0.05);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 992px) {
+  .teamBtn.prev {
+    left: 10px;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  .teamBtn.next {
+    right: 10px;
+    background: rgba(0, 0, 0, 0.5);
+  }
+}
+
+@media (max-width: 768px) {
+  .teamCard {
+    flex: 0 0 100%;
+  }
+
+  .card {
+    height: 480px;
+  }
+
+  .sectionWrapper {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

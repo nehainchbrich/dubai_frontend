@@ -1,0 +1,121 @@
+.card {
+  width: 100%;
+  position: relative;
+  transition: box-shadow 0.3s;
+  border-radius: 10px;
+  margin: 10px 0px;
+  border: 1px solid;
+  border-image:var(--four-side-border);
+  cursor: pointer;
+}
+.card h3{
+  font-weight: bolder;
+  text-transform: capitalize;
+}
+.card:hover .tags{
+  opacity: 1;
+  
+}
+.card hr{
+border-top:1px solid;
+border-image: var(--one-side-border);
+}
+.card_top{
+position: relative;
+}
+.card_top img{
+  width: 100%;
+  height: 300px;
+  border-radius: 10px 10px 0 0;
+}
+.tags{
+  background: var(--brand-color-2);
+  position: absolute;
+  top: 0;
+  border-radius: 6px;
+  padding: 3px;
+  font-size: 12px;
+  left: 0px;
+  overflow: hidden;
+  box-shadow: var(--shadow-200);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.caption{
+  background: var(--tr-color-1);
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  position: absolute;
+  bottom:0;
+}
+.caption i{
+  color:var(--color-3);
+  font-size: 20px;
+  font-weight: bolder;
+  position: relative;
+  top: 2px;
+  left: -2px;
+}
+.card_bottom{
+  width: 100%;
+  padding: 5px 10px;
+  height: 13rem;
+  font-size: 14px;
+}
+.card_bottom h4 a{
+  font-size: 18px;
+  font-weight: bolder;
+}
+.amenities ul {
+  list-style: none;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  left: -23px;
+}
+.agent_profile{
+display: flex;
+width: 100%;
+height: auto;
+justify-content: space-between;
+padding: 0 10px;
+place-items: center;
+}
+ .agent_profile img{
+  width: 40px!important;
+  height: 40px;
+  border-radius: 100%;
+  position: relative;
+  top: -7px;
+}
+a .agent_profile p{
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: bolder;
+} 
+.card_bottom ul {
+list-style: none;
+display: flex;
+justify-content: space-between;
+padding: 0;
+}
+.inquiry_icons{
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  width: 100%;
+}
+.inquiry_icons span{
+    border: 1px solid;
+    border-image: var(--four-side-border);
+    width: 100%;
+    text-align: center;
+    padding: 0;
+    font-size: 22px;
+}

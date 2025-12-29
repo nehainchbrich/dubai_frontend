@@ -1,0 +1,13 @@
+stages:
+  - deploy
+
+deploy_website:
+  stage: deploy
+  script:
+    - apt-get update -qy
+    - apt-get install -y sshpass
+    - sshpass -p $VPS_PASSWORD scp -o StrictHostKeyChecking=no -r $CI_PROJECT_DIR/* root@139.59.80.18:/var/www/website/ > scp_debug.log 2>&1
+    - sshpass -p $VPS_PASSWORD ssh root@139.59.80.18 'cd /var/www/website && npm install && npm run build'
+    - sshpass -p $VPS_PASSWORD ssh root@139.59.80.18 'sudo pm2 restart inchbrick'
+  only:
+    - main

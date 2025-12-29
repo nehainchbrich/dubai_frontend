@@ -1,0 +1,17 @@
+.uploadImg{
+    min-height: 50vh;
+    height: 100%;
+    border: 1px dotted;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.uploadImg i{
+    font-size: 10em;
+}
+.progressBar{
+    background: red;
+    height: 2px;
+}
