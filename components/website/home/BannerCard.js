@@ -13,9 +13,19 @@ const BannerCard = ({ item, isVideo }) => {
             </video>
           ) : (
 
+            // <Image
+            //   loader={imageKitLoader}
+            //   src={`${item.thumbnail}`}
+
+            //   alt={item.heading1 || 'Inchbrick luxury project'}
+            //   fill
+            //   style={{ objectFit: 'cover' }}
+            //   quality={90}
+            //   priority={true}
+            // />
             <Image
-              loader={imageKitLoader}
-              src={`${item.thumbnail}`}
+
+              src="/images/banner.jpg"
               alt={item.heading1 || 'Inchbrick luxury project'}
               fill
               style={{ objectFit: 'cover' }}
@@ -31,16 +41,24 @@ const BannerCard = ({ item, isVideo }) => {
               <source src={`${process.env.API_URL}${item.thumbnail}`} type={`video/${item.thumbnail.split('.').pop().toLowerCase()}`} />
             </video>
           ) : (
+            // <Image
+            //   loader={imageKitLoader}
+            //   src={`${item.thumbnail}`}
+            //   alt={item.heading1 || 'Inchbrick luxury project'}
+            //   fill
+            //   style={{ objectFit: 'cover' }}
+            //   quality={90}
+            //   priority={true}
+            // />
             <Image
-              loader={imageKitLoader}
-              src={`${item.thumbnail}`}
+
+              src="/images/banner.jpg"
               alt={item.heading1 || 'Inchbrick luxury project'}
               fill
               style={{ objectFit: 'cover' }}
               quality={90}
               priority={true}
             />
-
           )}
         </div>
       )}
