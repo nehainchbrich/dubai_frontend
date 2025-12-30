@@ -4,7 +4,7 @@ import Image from "next/image";
 import { imageKitLoader, ImagePath } from "@/helper/Helper";
 import Link from "next/link";
 
-const Team = ({ data, section, event }) => {
+const Team = ({ data = [], section, event }) => {
   const activeExpos = Array.isArray(event)
     ? event.filter((expo) => {
       const status = (expo.status || "").toUpperCase();
@@ -14,123 +14,119 @@ const Team = ({ data, section, event }) => {
       );
     })
     : [];
-  const description = ImagePath(section?.sectionSubHeading) ||
-    "Meet the Great Minds Who Drive Inch & Brick Realty forward. ";
+
+  const description =
+    ImagePath(section?.sectionSubHeading) ||
+    "Meet the leadership behind our growth.";
+
   const trackRef = useRef(null);
-  const [index, setIndex] = useState(0);
-  const [slidesToShow, setSlidesToShow] = useState(3);
   const autoId = useRef(null);
 
-  const [isHovered, setIsHovered] = useState(false); // ✅ Track hover state
+  const [index, setIndex] = useState(0);
+  const [slidesToShow, setSlidesToShow] = useState(4);
+  const [isHovered, setIsHovered] = useState(false);
 
-  // ✅ adjust slides based on screen width
+  /* ================= RESPONSIVE ================= */
   useEffect(() => {
-    const updateSlides = () => {
-      const show = window.innerWidth <= 768 ? 1 : 3;
+    const update = () => {
+      const show =
+        window.innerWidth <= 600 ? 1 :
+          window.innerWidth <= 900 ? 2 :
+            window.innerWidth <= 1200 ? 3 :
+              4;
       setSlidesToShow(show);
-      setIndex(show === 3 ? 1 : 0); // 👈 center on load if 3 slides
+      setIndex(0);
     };
-    updateSlides();
-    window.addEventListener("resize", updateSlides);
-    return () => window.removeEventListener("resize", updateSlides);
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
   }, []);
 
-  // ✅ slide transform
+  /* ================= SLIDE MOVE ================= */
   useEffect(() => {
     if (!trackRef.current) return;
-    const cards = trackRef.current.children;
-    if (!cards.length) return;
+    const card = trackRef.current.children[0];
+    if (!card) return;
 
-    const cardWidth = cards[0].getBoundingClientRect().width;
-    const gap = parseFloat(getComputedStyle(trackRef.current).gap) || 0;
-    const slideWidth = cardWidth + gap;
+    const gap = 20; // Matches CSS
+    const width = card.getBoundingClientRect().width; // cardWrap width (includes padding)
+    // Note: cardWrap has padding, so width is full width including padding. 
+    // Wait, flex gap is on the track.
+    // CSS says: .track { gap: 20px; }
+    // .cardWrap is flex: 0 0 25%.
+    // Actually, if we use flex gap, the calculation is (width + gap).
+    // Let's verify if cardWrap width includes the gap. No, flex items are separated by gap.
 
-    const x = -index * slideWidth;
-    trackRef.current.style.transform = `translateX(${x}px)`;
-    trackRef.current.style.transition = "transform 0.5s ease-in-out";
+    // Correction: cardWrap width is just the item width.
+    const slideDist = width + gap;
+
+    trackRef.current.style.transform = `translateX(${-index * slideDist}px)`;
+    trackRef.current.style.transition = "transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)";
   }, [index, slidesToShow]);
 
   const next = () => {
-    const maxIndex = data.length - slidesToShow;
-    setIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
+    const max = data.length - slidesToShow;
+    setIndex((p) => (p >= max ? 0 : p + 1));
   };
 
   const prev = () => {
-    const maxIndex = data.length - slidesToShow;
-    setIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
+    const max = data.length - slidesToShow;
+    setIndex((p) => (p <= 0 ? max : p - 1));
   };
 
-  // ✅ autoplay with pause on hover
+  /* ================= AUTOPLAY ================= */
   useEffect(() => {
     if (!isHovered) {
-      autoId.current = setInterval(next, 3000);
+      autoId.current = setInterval(next, 4000);
     }
     return () => clearInterval(autoId.current);
   }, [slidesToShow, isHovered]);
 
   return (
     <section className={styles.teamSection}>
-      <h2>{section?.sectionHeading || "Our People"}</h2>
-      <p className={styles.lead} dangerouslySetInnerHTML={{ __html: description }}></p>
-      <span className={styles.bgWatermark}>team</span>
+      <h2>{section?.sectionHeading || "Our Team"}</h2>
+      <p
+        className={styles.lead}
+        dangerouslySetInnerHTML={{ __html: description }}
+      />
 
       <div
         className={styles.sliderWrapper}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <div
-          className={`${styles.cards} ${styles.teamSliderTrack}`}
-          ref={trackRef}
-        >
-          {data &&
-            data.map((item, i) => {
-              // ✅ highlight center card
-              let activeIndex = slidesToShow === 3 ? index + 1 : index;
-              const isActive = i === activeIndex;
-
-              return (
-                <div
-                  key={i}
-                  className={`${styles.teamCard} ${isActive ? styles.active : ""}`}
-                >
-                  <div className={styles.card}>
-                    <Image
-                      src={item.profile}
-                      loader={imageKitLoader}
-                      alt={item.firstName}
-                      width={400}
-                      height={500}
-                      className={styles.profImg}
-                    />
-                    <div className={styles.cardContent}>
-                      <h3>{item.firstName}</h3>
-                      <p>{item.designation}</p>
-                    </div>
-                  </div>
+        <div className={styles.track} ref={trackRef}>
+          {data.map((item, i) => (
+            <div className={styles.cardWrap} key={i}>
+              <div className={styles.card}>
+                <Image
+                  loader={imageKitLoader}
+                  src={item.profile}
+                  alt={item.firstName}
+                  width={400}
+                  height={600}
+                  className={styles.image}
+                />
+                <div className={styles.info}>
+                  <h3>{item.firstName}</h3>
+                  <span>{item.designation}</span>
                 </div>
-              );
-            })}
+              </div>
+            </div>
+          ))}
         </div>
 
-        <button onClick={prev} className={`${styles.prev} ${styles.teamBtn}`} id="prev">
+        <button className={`${styles.nav} ${styles.prev}`} onClick={prev}>
           ❮
         </button>
-        <button onClick={next} className={`${styles.next} ${styles.teamBtn}`} id="next">
+        <button className={`${styles.nav} ${styles.next}`} onClick={next}>
           ❯
         </button>
-
       </div>
-      {activeExpos.length > 0 ? (
-        <Link className={styles.btnClass} href="/expo-invitation">
-          Grab FREE VIP Pass
-        </Link>
-      ) : (
-        <Link
-          className={`${styles.btn} ${styles.ghost}`}
-          href="/contact-us"
-        >
-          Talk to Us
+
+      {activeExpos.length > 0 && (
+        <Link href="/expo-invitation" className={styles.cta}>
+          Free VIP Pass
         </Link>
       )}
     </section>

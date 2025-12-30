@@ -1,137 +1,263 @@
+/* CINEMATIC VIDEO SECTION */
+
+.videoSection {
+  background: radial-gradient(circle at center, #1a1a1e 0%, #0b0b0e 100%);
+  /* Metallic Dark Radial */
+  color: #fff;
+  padding: 5rem 0;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 2;
+}
 
 .dFlex {
   display: flex;
   justify-content: space-between;
-  margin-top: 3rem;
+  align-items: flex-end;
+  border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+  /* Gold separator */
+  padding-bottom: 24px;
 }
-.btnClass {
-  align-self: flex-start;
-  padding: 10px 9px;
-  background: linear-gradient(90deg, #000000, #66696a);
-  border-radius: 3px;
-  font-weight: bold;
-  text-decoration: none;
-  transition: background 0.3s;
-}
+
 .heading {
   font-size: 2.5rem;
-  color: #000;
+  font-weight: 700;
+  color: #fff;
+  /* White title for contrast */
+  text-transform: uppercase;
+  margin: 0 0 10px;
+  letter-spacing: 2px;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
 }
+
 .lead {
+  font-size: 1.1rem;
+  color: #888;
+  max-width: 600px;
+  margin: 0;
+  font-family: monospace;
+  /* Tech/Film feel */
+  letter-spacing: -0.5px;
+}
+
+.btnClass {
+  padding: 12px 30px;
+  background: #d3122a;
+  color: #fff !important;
+  border-radius: 2px;
+  /* Sharp corners */
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btnClass:hover {
+  background: #c5a059;
   color: #000;
+  box-shadow: 0 0 20px rgba(197, 160, 89, 0.4);
+  transform: translateY(-2px);
 }
-.lead a{
-  color: #003076 !important;
-}
-/* Slider */
+
+/* SLIDER */
+
 .gallerySlider {
   position: relative;
   width: 100%;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding-bottom: 40px;
 }
+
 .slides {
   display: flex;
-  transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1);
-  gap: 20px;
+  gap: 30px;
+  /* Wider gap */
+  padding: 0 40px;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
+
+/* VIDEO CARD */
+
 .slide {
   flex: 0 0 calc(33.333% - 20px);
-  height: 300px;
+  height: 400px;
+  /* Taller */
   position: relative;
-  overflow: hidden;
 }
+
 .videoCol {
-  position: relative;
   width: 100%;
   height: 100%;
   background: #000;
+  border-radius: 4px;
+  /* Less rounded */
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
+
+.slide:hover .videoCol {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
+  border-color: #d3122a;
+  /* Red border on hover - distinct from gallery gold */
+}
+
 .videoCol video {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  opacity: 0.7;
+  transition: opacity 0.4s ease, transform 0.6s ease;
+  filter: grayscale(40%);
+  /* Cinematic desaturation */
 }
+
+.slide:hover .videoCol video {
+  opacity: 1;
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+/* PLAY BUTTON */
+
 .videoPlayPauseBtn {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: rgba(0, 0, 0, 0.7);
-  color: #fff;
-  border: none;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
-  width: 56px;
-  height: 56px;
-  font-size: 2rem;
+  background: rgba(211, 18, 42, 0.9);
+  /* Red button base */
+  backdrop-filter: blur(5px);
+  border: none;
+  color: #fff;
+  font-size: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 0 0 rgba(211, 18, 42, 0.7);
+  animation: pulse-red 2s infinite;
 }
 
-/* Arrows */
+.videoPlayPauseBtn:hover {
+  background: #fff;
+  color: #d3122a;
+  transform: translate(-50%, -50%) scale(1.1);
+  animation: none;
+  box-shadow: 0 0 30px rgba(211, 18, 42, 0.8);
+}
+
+@keyframes pulse-red {
+  0% {
+    transform: translate(-50%, -50%) scale(0.95);
+    box-shadow: 0 0 0 0 rgba(211, 18, 42, 0.7);
+  }
+
+  70% {
+    transform: translate(-50%, -50%) scale(1);
+    box-shadow: 0 0 0 20px rgba(211, 18, 42, 0);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(0.95);
+    box-shadow: 0 0 0 0 rgba(211, 18, 42, 0);
+  }
+}
+
+/* NAVIGATION - Minimalist */
+
 .arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 1rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 0;
+  /* Square arrows */
+  background: rgba(0, 0, 0, 0.8);
   color: #fff;
-  background: rgba(0, 0, 0, 0.4);
-  padding: 10px 18px;
-  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   z-index: 10;
-  transition: background 0.3s;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
+
 .arrow:hover {
-  background: rgba(0, 0, 0, 0.7);
+  background: #d3122a;
+  /* Red hover */
+  border-color: #d3122a;
 }
+
 .left {
-  left: 20px;
+  left: 0;
 }
+
 .right {
-  right: 20px;
+  right: 0;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
+/* RESPONSIVE */
+
+@media (max-width: 992px) {
   .slide {
-    flex: 0 0 calc(50% - 20px);
+    flex: 0 0 calc(50% - 15px);
+    height: 350px;
   }
-}
-@media (max-width: 600px) {
-  .slide {
-    flex: 0 0 100%;
-  }
-}
-  .container {
-  width: 100%;
-  padding-right: var(--bs-gutter-x, 0.75rem);
-  padding-left: var(--bs-gutter-x, 0.75rem);
-  margin-right: auto;
-  margin-left: auto;
 }
 
-@media (min-width: 576px) {
-  .container { max-width: 540px; }
-}
-@media (min-width: 768px) {
-  .container { max-width: 720px; }
-}
-@media (min-width: 992px) {
-  .container { max-width: 960px; }
-}
-@media (min-width: 1200px) {
-  .container { max-width: 1140px; }
-}
-@media (min-width: 1400px) {
-  .container { max-width: 1320px; }
-}
 @media (max-width: 768px) {
   .dFlex {
     display: block;
+    text-align: center;
   }
-  .gallerySlider{
-    margin-top: 1rem;
+
+  .btnClass {
+    display: inline-block;
+    margin-top: 20px;
+  }
+
+  .heading {
+    font-size: 2rem;
+  }
+
+  .lead {
+    margin: 0 auto;
+  }
+
+  .slides {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .slide {
+    flex: 0 0 100%;
+    height: 300px;
+  }
+
+  .videoPlayPauseBtn {
+    width: 60px;
+    height: 60px;
+    font-size: 1.8rem;
   }
 }

@@ -1,71 +1,290 @@
 .eventsSection {
   position: relative;
   overflow: hidden;
-      display: flex;
-          background: #fff;
-    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
-       min-height: 353px;
-    padding: 1rem;
+  display: flex;
+  background: #fff;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+  min-height: 353px;
+  padding: 1rem;
 }
-.btnClass{
-      align-self: flex-start;
-    padding: 10px 12px;
-    background: linear-gradient(90deg,#003a9b,#1e8dc2);
-    border-radius: 7px;
-    font-weight: bold;
-    text-decoration: none;
-    transition: background 0.3s;
-    margin-top: 1rem;
-    display: inline-block;
+
+.btnClass {
+  align-self: flex-start;
+  padding: 10px 12px;
+  background: linear-gradient(90deg, #d3122a, #c5a059);
+  /* Red to Gold */
+  border-radius: 7px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.3s;
+  margin-top: 1rem;
+  display: inline-block;
+  color: #fff;
 }
-.zIndex{
+
+.btnClass:hover {
+  background: linear-gradient(90deg, #b00d20, #a08040);
+  transform: translateY(-2px);
+}
+
+.zIndex {
   z-index: 2;
   padding: 1rem;
 }
-.eventTitle{width:50%; padding: 3rem;}
-.eventsSliderWrapper { overflow: hidden; position: relative; width: 50%;}
-.eventsSlider { display: flex; transition: transform 0.8s ease-in-out; height: 100%; }
-.eventCard { flex: 0 0 100%; display: flex; align-items: stretch;}
-.eventImg { flex: 1; width: 100%; position: absolute;}
-.eventContent:after{position: absolute;content: ""; width: 100%; height: 100%; background: linear-gradient(45deg, black, transparent);}
-.eventImg img { width: 100%; height: 100%; object-fit: cover; }
-.eventContent {position: relative; flex: 1; display: flex; flex-direction: column; justify-content: center; }
-.eventContent h3 { margin: 0 0 12px; font-size: 1.6rem !important; color: #fff !important; }
-.eventContent p { color: #fff; margin-bottom: 20px; }
-.eventContent a { align-self: flex-start; padding: 10px 9px; background: linear-gradient(90deg,#003a9b,#1e8dc2); color: #000; border-radius: 8px; font-weight: bold; text-decoration: none; transition: background 0.3s; }
-.eventContent a:hover { background: #38bdf8; }
-.viewMore:hover{
-  background: linear-gradient(90deg, #003a9b, #1e8dc2) !important;
-  color: #fff;
-  border-color: #003a9b;
+
+.eventTitle {
+  width: 50%;
+  padding: 3rem;
 }
+
+.eventsSliderWrapper {
+  overflow: hidden;
+  position: relative;
+  width: 50%;
+}
+
+.eventsSlider {
+  display: flex;
+  transition: transform 0.8s ease-in-out;
+  height: 100%;
+}
+
+.eventCard {
+  flex: 0 0 100%;
+  display: flex;
+  align-items: stretch;
+}
+
+.eventImg {
+  flex: 1;
+  width: 100%;
+  position: absolute;
+}
+
+.eventContent:after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #000 30%, transparent 100%);
+}
+
+.eventImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.eventContent {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.eventContent h3 {
+  margin: 0 0 12px;
+  font-size: 1.6rem !important;
+  color: #c5a059 !important;
+  /* Gold Title in Card */
+}
+
+.eventContent p {
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.eventContent a {
+  align-self: flex-start;
+  padding: 10px 20px;
+  background: linear-gradient(90deg, #d3122a, #c5a059);
+  /* Red to Gold */
+  color: #fff;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.eventContent a:hover {
+  background: linear-gradient(90deg, #b00d20, #a08040);
+  transform: translateY(-2px);
+}
+
+.viewMore {
+  background: none !important;
+  border: 1px solid #c5a059 !important;
+  color: #c5a059 !important;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 10px 20px;
+  transition: all 0.3s;
+}
+
+.viewMore:hover {
+  background: #c5a059 !important;
+  color: #000 !important;
+}
+
 /* Arrows */
-.eventArrow { position: absolute; top: 14%; transform: translateY(-50%); font-size: 1rem; color: #fff; background: rgba(0,0,0,0.5); padding: 10px 17px; border-radius: 50%; cursor: pointer; user-select: none; transition: background 0.3s; z-index: 10; }
-.eventArrow:hover { background: rgba(0,0,0,0.8); }
-.eventArrow.left { right: 79px; }
-.eventArrow.right { right: 20px; }
+.eventArrow {
+  position: absolute;
+  top: 14%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  color: #000;
+  background: #c5a059;
+  /* Gold */
+  padding: 10px 17px;
+  border-radius: 50%;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.3s, color 0.3s;
+  z-index: 10;
+}
+
+.eventArrow:hover {
+  background: #d3122a;
+  /* Red */
+  color: #fff;
+}
+
+.eventArrow.left {
+  right: 79px;
+}
+
+.eventArrow.right {
+  right: 20px;
+}
 
 /* Container + headings */
-.containerEvent { box-sizing: border-box; margin-left: auto; margin-right: auto; padding: 30px; }
-@media only screen and (min-width: 576px) { .containerEvent { width: 560px; } }
-@media only screen and (min-width: 768px) { .containerEvent { width: 752px; } }
-@media only screen and (min-width: 992px) { .containerEvent { width: 1205px; } }
+.containerEvent {
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px;
+}
 
-.OurFormulaSectionHeading { color: #6d6d6d; text-transform: uppercase; position: relative; font-size: 14px; line-height: 18px; padding-left: 90px; }
-.OurFormulaSectionHeading:before { content: ""; position: absolute; height: 1px; width: 65px; background: #6d6d6d; left: 0; top: 50%; transform: translateY(-50%); }
-.OurFormulaFormulaSubHeading { font-size: 24px; line-height: 120%; color: #000000b3; padding-bottom: 3rem; padding-top: 2rem; }
-@media only screen and (min-width: 768px) { .OurFormulaFormulaSubHeading { font-size: 30px; line-height: 110%; } }
-@media only screen and (min-width: 992px) { .OurFormulaFormulaSubHeading { font-size: 38px; padding-left: 90px; } }
+@media only screen and (min-width: 576px) {
+  .containerEvent {
+    width: 560px;
+  }
+}
 
-.WhatWeDoWhatWeDoContainer { padding: 0; position: relative; }
-.WhatWeDoWhatWeDoWrap { padding: 0 0 22px; position: relative; }
-.WhatWeDoWhatWeDoWrap h3 { font-size: 27px; font-weight: 600; margin: 0 0 10px; color: #3f3e3e; }
-.WhatWeDoWhatWeDoWrap p { font-size: 17px; line-height: 150%; color: #ffffff; margin: 0; }
-.WhatWeDoWhatWeDoCotentList { width: 100%; margin: 0; opacity: 0; transform: translateY(100px); transition: opacity 0.5s ease, transform 0.5s ease; }
-.fadeIn { opacity: 1; transform: translateY(0); }
-.eventTitle p{color:#453b3b;font-size: 1.5rem;}
-.viewMore { background: none !important; border: 1px solid; color: #ffffff !important; border-radius: 8px; font-weight: bold; text-decoration: none; padding: 10px 9px; }
-.dFlex { display: flex;margin-top: 1rem; justify-content: space-between; }
+@media only screen and (min-width: 768px) {
+  .containerEvent {
+    width: 752px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .containerEvent {
+    width: 1205px;
+  }
+}
+
+.OurFormulaSectionHeading {
+  color: #d3122a;
+  text-transform: uppercase;
+  position: relative;
+  font-size: 14px;
+  line-height: 18px;
+  padding-left: 90px;
+}
+
+.OurFormulaSectionHeading:before {
+  content: "";
+  position: absolute;
+  height: 1px;
+  width: 65px;
+  background: #c5a059;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.OurFormulaFormulaSubHeading {
+  font-size: 24px;
+  line-height: 120%;
+  color: #000000b3;
+  padding-bottom: 3rem;
+  padding-top: 2rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .OurFormulaFormulaSubHeading {
+    font-size: 30px;
+    line-height: 110%;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .OurFormulaFormulaSubHeading {
+    font-size: 38px;
+    padding-left: 90px;
+  }
+}
+
+.WhatWeDoWhatWeDoContainer {
+  padding: 0;
+  position: relative;
+}
+
+.WhatWeDoWhatWeDoWrap {
+  padding: 0 0 22px;
+  position: relative;
+}
+
+.WhatWeDoWhatWeDoWrap h3 {
+  font-size: 27px;
+  font-weight: 600;
+  margin: 0 0 10px;
+  color: #3f3e3e;
+}
+
+.WhatWeDoWhatWeDoWrap p {
+  font-size: 17px;
+  line-height: 150%;
+  color: #ffffff;
+  margin: 0;
+}
+
+.WhatWeDoWhatWeDoCotentList {
+  width: 100%;
+  margin: 0;
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fadeIn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.eventTitle p {
+  color: #453b3b;
+  font-size: 1.5rem;
+}
+
+.viewMore {
+  background: none !important;
+  border: 1px solid;
+  color: #ffffff !important;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 10px 9px;
+}
+
+.dFlex {
+  display: flex;
+  margin-top: 1rem;
+  justify-content: space-between;
+}
+
 /* modal */
 .modalOverlay {
   position: fixed;
@@ -85,12 +304,13 @@
   background: none;
   background-color: none;
   border-radius: 12px;
-max-width: 60%;
-    min-width: 60%;
+  max-width: 60%;
+  min-width: 60%;
   text-align: center;
   position: relative;
 }
-.modalContent img{
+
+.modalContent img {
   width: 100%;
   height: auto;
 }
@@ -111,4 +331,51 @@ max-width: 60%;
   text-align: center;
   transition: 0.2s ease;
 }
-@media (max-width: 768px) {.modalContent{min-width:100% !important;max-width:100% !important}.OurFormulaSectionHeading{margin: .3rem 1rem;}.OurFormulaFormulaSubHeading{padding: .3rem 1rem;}.containerEvent{padding:0}.eventsSection{display: block;}.eventsSlider{height:300px}.eventTitle{width: 100%;padding:1rem}.eventsSliderWrapper{width: 100%;} .eventCard { flex-direction: column; } .eventImg { height: 315px; } .dFlex { display: block; } }
+
+@media (max-width: 768px) {
+  .modalContent {
+    min-width: 100% !important;
+    max-width: 100% !important
+  }
+
+  .OurFormulaSectionHeading {
+    margin: .3rem 1rem;
+  }
+
+  .OurFormulaFormulaSubHeading {
+    padding: .3rem 1rem;
+  }
+
+  .containerEvent {
+    padding: 0
+  }
+
+  .eventsSection {
+    display: block;
+  }
+
+  .eventsSlider {
+    height: 300px
+  }
+
+  .eventTitle {
+    width: 100%;
+    padding: 1rem
+  }
+
+  .eventsSliderWrapper {
+    width: 100%;
+  }
+
+  .eventCard {
+    flex-direction: column;
+  }
+
+  .eventImg {
+    height: 315px;
+  }
+
+  .dFlex {
+    display: block;
+  }
+}

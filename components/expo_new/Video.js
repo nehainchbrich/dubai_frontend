@@ -7,12 +7,12 @@ import Link from "next/link";
 export default function VideoSection({ data, section, event }) {
   const activeExpos = Array.isArray(event)
     ? event.filter((expo) => {
-        const status = (expo.status || "").toUpperCase();
-        return (
-          status === "ACTIVE" ||
-          (status === "UPCOMING" && Number(expo.default_status) === 1)
-        );
-      })
+      const status = (expo.status || "").toUpperCase();
+      return (
+        status === "ACTIVE" ||
+        (status === "UPCOMING" && Number(expo.default_status) === 1)
+      );
+    })
     : [];
 
   const description =
@@ -107,7 +107,7 @@ export default function VideoSection({ data, section, event }) {
   }, [currentIndex, itemsPerView]);
 
   return (
-    <>
+    <div className={styles.videoSection}>
       <div className={styles.container}>
         <div className={styles.dFlex}>
           <div>
@@ -119,29 +119,29 @@ export default function VideoSection({ data, section, event }) {
               dangerouslySetInnerHTML={{ __html: description }}
             ></p>
           </div>
-          
-  {activeExpos.length > 0 ? (
-             <Link className={styles.btnClass} href="/expo-invitation">
-            Grab FREE VIP Pass
-          </Link>
-            ) : (
-              <Link
-                className={`${styles.btn} ${styles.ghost}`}
-                href="/contact-us"
-              >
-                Talk to Us
-              </Link>
-            )}
+
+          {activeExpos.length > 0 ? (
+            <Link className={styles.btnClass} href="/expo-invitation">
+              Grab FREE VIP Pass
+            </Link>
+          ) : (
+            <Link
+              className={styles.btnClass}
+              href="/contact-us"
+            >
+              Talk to Us
+            </Link>
+          )}
         </div>
       </div>
 
-      <section className={styles.gallerySlider} ref={galleryRef}>
+      <div className={styles.gallerySlider} ref={galleryRef}>
         <div className={styles.slides} ref={slidesWrapperRef}>
           {video_gallery &&
             video_gallery.map((item, i) => (
               <div key={i} className={styles.slide}>
                 <div className={styles.videoCol}>
-                  <video muted playsInline>
+                  <video muted playsInline loop>
                     <source
                       src={`${process.env.API_URL}${item.thumbnails}`}
                       type="video/mp4"
@@ -159,14 +159,14 @@ export default function VideoSection({ data, section, event }) {
             ))}
         </div>
 
-        {/* ✅ Arrows */}
+        {/* ✅ Arrows - Moved inside relative container if needed, or kept here */}
         <div className={`${styles.arrow} ${styles.left}`} onClick={handlePrev}>
           ❮
         </div>
         <div className={`${styles.arrow} ${styles.right}`} onClick={handleNext}>
           ❯
         </div>
-      </section>
-    </>
+      </div>
+    </div>
   );
 }

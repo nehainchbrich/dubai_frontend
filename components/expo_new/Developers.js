@@ -3,52 +3,54 @@ import styles from "../../styles/expo_new/Developer.module.css";
 import Image from "next/image";
 import { imageKitLoader } from "@/helper/Helper";
 
-const Developers = ({ data, section }) => {
-  const logosRef = useRef(null);
-  const slideRef = useRef(null);
+const Developers = ({ data = [], section }) => {
+  const trackRef = useRef(null);
 
   useEffect(() => {
-    if (section?.eventMode !== "single" && logosRef.current && slideRef.current) {
-      // Prevent multiple clones on re-renders
-      if (logosRef.current.children.length < 2) {
-        const copy = slideRef.current.cloneNode(true);
-        logosRef.current.appendChild(copy);
+    if (section?.eventMode !== "single" && trackRef.current) {
+      const track = trackRef.current;
+
+      if (track.dataset.cloned !== "true") {
+        track.innerHTML += track.innerHTML;
+        track.dataset.cloned = "true";
       }
     }
   }, [section?.eventMode]);
 
-  // ✅ Case 1: Single Event Mode
+  /* ================= SINGLE MODE ================= */
   if (section?.eventMode === "single") {
     return (
       <div className={styles.singleDeveloper}>
-        {section?.sectionResource && (
-          <Image
-            src={section?.sectionResource}
-            alt={section?.sectionHeading}
-            width={200}
-            height={120}
-          />
-        )}
+        <Image
+          loader={imageKitLoader}
+          src={section?.sectionResource}
+          alt={section?.sectionHeading}
+          width={220}
+          height={120}
+        />
       </div>
     );
   }
 
-  // ✅ Case 2: Normal → loop logos
+  /* ================= FULL WIDTH SLIDER ================= */
   return (
-    <div className={styles.logos} ref={logosRef}>
-      <div className={styles.logosSlide} ref={slideRef}>
-        {data?.map((item, i) => (
-          <Image
-            loader={imageKitLoader}
-            key={i}
-            src={item.logo}
-            alt={item.name}
-            width={200}
-            height={120}
-          />
-        ))}
+    <section className={styles.developersFull}>
+      <div className={styles.slider}>
+        <div className={styles.track} ref={trackRef}>
+          {data.map((item, i) => (
+            <div className={styles.logoItem} key={i}>
+              <Image
+                loader={imageKitLoader}
+                src={item.logo}
+                alt={item.name}
+                width={180}
+                height={90}
+              />
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

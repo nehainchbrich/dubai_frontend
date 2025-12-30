@@ -12,7 +12,7 @@ import React, { useEffect, useState } from 'react'
 import PremiumAutoPopup from '@/components/website/common/PremiumAutoPopup';
 const Website = ({ children, meta, category, tags, latestBlog }) => {
   const router = useRouter();
-  const isHome = router.pathname === "/";
+  const isHome = router.pathname === "/" || router.pathname === "/events";
   // useEffect(() => {
   //   const visitors = localStorage.getItem('visitors');
   //   if(!visitors){uniqueVisitor();}

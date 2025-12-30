@@ -23,7 +23,7 @@ const Events = ({ data = [] }) => {
       (normalizeStatus(expo.status) === "UPCOMING" &&
         Number(expo.default_status) === 1)
   );
-console.log(activeExpos);
+  console.log(activeExpos);
   const expoDate = activeExpos.length
     ? formatEventDatesWithSuffix(activeExpos[0].eventDate)
     : "";
@@ -130,19 +130,18 @@ console.log(activeExpos);
                       {section.expos.length > 0 && (
                         <Link
                           href={normalizeStatus(
-                              section.expos[activeIndexes[idx]].status
-                            ) !== "UPCOMING"
-                              ? `/events/${section.expos[activeIndexes[idx]].slug}`
-                              : `/blogs/${section.expos[activeIndexes[idx]].blog_link}`
+                            section.expos[activeIndexes[idx]].status
+                          ) !== "UPCOMING"
+                            ? `/events/${section.expos[activeIndexes[idx]].slug}`
+                            : `/blogs/${section.expos[activeIndexes[idx]].blog_link}`
                           }
                           className={styles.eventsSliderWrapper}
                         >
                           <div
                             className={styles.eventsSlider}
                             style={{
-                              transform: `translateX(-${
-                                activeIndexes[idx] * 100
-                              }%)`,
+                              transform: `translateX(-${activeIndexes[idx] * 100
+                                }%)`,
                               transition: "transform 0.6s ease",
                               display: "flex",
                             }}
@@ -171,15 +170,15 @@ console.log(activeExpos);
                                     <p>
                                       {item.eventDate
                                         ? expoDateFormat(item.eventDate).join(
-                                            ", "
-                                          )
+                                          ", "
+                                        )
                                         : ""}
                                     </p>
 
                                     {/* ✅ Keep per-card View More button */}
                                     <div className={styles.dFlex}>
                                       {normalizeStatus(item.status) !==
-                                      "UPCOMING" ? (
+                                        "UPCOMING" ? (
                                         <Link
                                           className={styles.viewMore}
                                           href={`/events/${item.slug}`}

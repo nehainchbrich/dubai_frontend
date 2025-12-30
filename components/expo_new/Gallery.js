@@ -4,19 +4,19 @@ import Image from "next/image";
 import { imageKitLoader, ImagePath } from "@/helper/Helper";
 import Link from "next/link";
 
-const Gallery = ({data,section,event}) => {
-    const activeExpos = Array.isArray(event)
+const Gallery = ({ data, section, event }) => {
+  const activeExpos = Array.isArray(event)
     ? event.filter((expo) => {
-        const status = (expo.status || "").toUpperCase();
-        return (
-          status === "ACTIVE" ||
-          (status === "UPCOMING" && Number(expo.default_status) === 1)
-        );
-      })
+      const status = (expo.status || "").toUpperCase();
+      return (
+        status === "ACTIVE" ||
+        (status === "UPCOMING" && Number(expo.default_status) === 1)
+      );
+    })
     : [];
-    const description = ImagePath(section?.sectionSubHeading) ||
-  "Browse stunning snapshots and exclusive property showcases from the Expo, capturing every memorable moment.";
-  const img_gallery = data.filter((item)=>item.fileType==="image" || item.fileType==="undefined");
+  const description = ImagePath(section?.sectionSubHeading) ||
+    "Browse stunning snapshots and exclusive property showcases from the Expo, capturing every memorable moment.";
+  const img_gallery = data.filter((item) => item.fileType === "image" || item.fileType === "undefined");
   const slidesWrapperRef = useRef(null);
   const galleryRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -25,9 +25,10 @@ const Gallery = ({data,section,event}) => {
   // Update items per view on resize
   useEffect(() => {
     const calcItems = () => {
+      // With the new 1 Big + 2 Small layout, we want to show 1 full block at a time
+      // Maybe on huge screens we show 2? But 1 looks premium.
       if (window.innerWidth < 600) return 1;
-      if (window.innerWidth < 900) return 2;
-      return 3;
+      return 1;
     };
     setItemsPerView(calcItems());
 
@@ -43,7 +44,7 @@ const Gallery = ({data,section,event}) => {
     slidesWrapperRef.current.style.transform = `translateX(-${offset}%)`;
 
     const slideItems = slidesWrapperRef.current.querySelectorAll(
-      `.${styles.slide}`
+      `.${styles.gridSlide}`
     );
     slideItems.forEach((slide, i) =>
       slide.classList.toggle(styles.active, i === currentIndex)
@@ -53,14 +54,14 @@ const Gallery = ({data,section,event}) => {
   // Next / Prev
   const handleNext = () => {
     const slideItems =
-      slidesWrapperRef.current?.querySelectorAll(`.${styles.slide}`) || [];
+      slidesWrapperRef.current?.querySelectorAll(`.${styles.gridSlide}`) || [];
     const maxIndex = slideItems.length - itemsPerView;
     setCurrentIndex((prev) => (prev + 1) % (maxIndex + 1));
   };
 
   const handlePrev = () => {
     const slideItems =
-      slidesWrapperRef.current?.querySelectorAll(`.${styles.slide}`) || [];
+      slidesWrapperRef.current?.querySelectorAll(`.${styles.gridSlide}`) || [];
     const maxIndex = slideItems.length - itemsPerView;
     setCurrentIndex((prev) => (prev - 1 + (maxIndex + 1)) % (maxIndex + 1));
   };
@@ -76,7 +77,7 @@ const Gallery = ({data,section,event}) => {
         rect.bottom > window.innerHeight * 0.3
       ) {
         const slideItems =
-          slidesWrapperRef.current?.querySelectorAll(`.${styles.slide}`) || [];
+          slidesWrapperRef.current?.querySelectorAll(`.${styles.gridSlide}`) || [];
         const scrollPercent =
           (window.innerHeight - rect.top) / (rect.height + window.innerHeight);
 
@@ -96,46 +97,78 @@ const Gallery = ({data,section,event}) => {
   }, [currentIndex, itemsPerView]);
 
   return (
-    <>
+    <section className={styles.gallerySection}>
       <div className={styles.container}>
         <div className={styles.dFlex}>
-        <div>
-      <h2 className={`${styles.textCenter} ${styles.galleryHeading}`}>
-        {section?.sectionHeading || "Gallery of Expo Moments that Matter  "}
-      </h2>
-      <p className={styles.lead} dangerouslySetInnerHTML={{__html:description}}></p>
-      </div>
-      
-      {activeExpos.length > 0 ? (
-             <Link className={styles.btnClass} href="/expo-invitation">
-            Grab FREE VIP Pass
-          </Link>
-            ) : (
-              <Link
-                className={`${styles.btn} ${styles.ghost}`}
-                href="/contact-us"
-              >
-                Talk to Us
-              </Link>
-            )}
-      </div>
-    </div>
-      <section className={styles.gallerySlider} id="gallery" ref={galleryRef}>
-        <div className={styles.slides} ref={slidesWrapperRef}>
-          {img_gallery && img_gallery.map((item,i)=>(
-  <div key={i} className={styles.slide}>
-                <div className={styles.imageWrapper}>
-                  <Image loader={imageKitLoader}
-                    src={item.thumbnails} alt={item.title}
-                    width={400}
-                    height={250}
-                    className={styles.image}
-                  />
-                </div>
-                
-              </div>
-          ))}
+          <div>
+            <h2 className={`${styles.textCenter} ${styles.galleryHeading}`}>
+              {section?.sectionHeading || "Gallery of Expo Moments that Matter  "}
+            </h2>
+            <p className={styles.lead} dangerouslySetInnerHTML={{ __html: description }}></p>
+          </div>
 
+          {activeExpos.length > 0 ? (
+            <Link className={styles.btnClass} href="/expo-invitation">
+              Grab FREE VIP Pass
+            </Link>
+          ) : (
+            <Link
+              className={`${styles.btn} ${styles.ghost}`}
+              href="/contact-us"
+            >
+              Talk to Us
+            </Link>
+          )}
+        </div>
+      </div>
+      <div className={styles.gallerySlider} id="gallery" ref={galleryRef}>
+        <div className={styles.slides} ref={slidesWrapperRef}>
+          {(() => {
+            // Chunk images into groups of 3
+            const chunks = [];
+            for (let i = 0; i < img_gallery.length; i += 3) {
+              chunks.push(img_gallery.slice(i, i + 3));
+            }
+
+            return chunks.map((chunk, i) => (
+              <div key={i} className={styles.gridSlide}>
+                {/* 1st Column: Big Image */}
+                <div className={styles.bigColumn}>
+                  {chunk[0] && (
+                    <div className={styles.imageCardBig}>
+                      <Image loader={imageKitLoader}
+                        src={chunk[0].thumbnails} alt={chunk[0].title}
+                        fill
+                        className={styles.image}
+                      />
+                    </div>
+                  )}
+                </div>
+
+                {/* 2nd Column: 2 Vertical Images */}
+                <div className={styles.smallColumn}>
+                  {chunk[1] && (
+                    <div className={styles.imageCardSmall}>
+                      <Image loader={imageKitLoader}
+                        src={chunk[1].thumbnails} alt={chunk[1].title}
+                        fill
+                        className={styles.image}
+                      />
+                    </div>
+                  )}
+                  {chunk[2] && (
+                    <div className={styles.imageCardSmall}>
+                      <Image loader={imageKitLoader}
+                        src={chunk[2].thumbnails} alt={chunk[2].title}
+                        fill
+                        className={styles.image}
+                      />
+                    </div>
+                  )}
+                </div>
+              </div>
+            ));
+          })()}
         </div>
 
         {/* ✅ Hook up click handlers */}
@@ -145,8 +178,8 @@ const Gallery = ({data,section,event}) => {
         <div className={`${styles.arrow} ${styles.right}`} onClick={handleNext}>
           ❯
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 };
 

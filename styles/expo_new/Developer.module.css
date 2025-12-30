@@ -1,82 +1,148 @@
+/* ================= HORIZONTAL SLIDER (RIGHT SIDE) ================= */
 
-.singleDeveloper{
-  z-index: 0;
-      position: absolute;
-    top: 47%;
-    right: 7%;
+.developersFull {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translateY(-50%);
+  width: 55%;
+  /* Slightly wider for gradient fade */
+  max-width: 800px;
+  height: auto;
+  margin: 0;
+  padding: 20px 0;
+  /* Gradient background: transparent left -> dark right */
+  background: linear-gradient(to right, transparent 0%, rgba(11, 11, 14, 0.9) 40%);
+  /* Remove borders */
+  border: none;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  /* Remove harsh shadow on left, keep maybe subtle or remove */
+  box-shadow: none;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
-.logos {
- display: flex;
-  overflow: hidden;
-  white-space: nowrap;
+
+/* ================= SINGLE MODE ================= */
+
+.singleDeveloper {
+  position: absolute;
+  bottom: 8%;
+  right: 6%;
+  padding: 10px 14px;
+  background: #fff;
+  border-radius: 4px;
+  z-index: 25;
+}
+
+/* ================= SLIDER ================= */
+
+.slider {
   position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  padding: 0;
 }
 
-.logos::before,
-.logos::after {
+/* Edge fade (Left/Right) */
+.slider::before,
+.slider::after {
   content: "";
   position: absolute;
   top: 0;
-  width: 250px;
+  width: 80px;
   height: 100%;
   z-index: 2;
+  pointer-events: none;
 }
 
-.logos::before {
+.slider::before {
   left: 0;
-  background: linear-gradient(to left, rgba(255, 255, 255, 0), #000);
+  background: linear-gradient(to right, #0b0b0e, transparent);
 }
 
-.logos::after {
+.slider::after {
   right: 0;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0), #000);
+  background: linear-gradient(to left, #0b0b0e, transparent);
 }
 
-.logos:hover .logosSlide {
+/* ================= TRACK ================= */
+
+.track {
+  display: flex;
+  flex-direction: row;
+  /* Horizontal */
+  align-items: center;
+  width: max-content;
+  height: auto;
+  animation: scrollHorizontal 30s linear infinite;
+  padding: 0;
+}
+
+.slider:hover .track {
   animation-play-state: paused;
 }
 
-.logosSlide {
+/* ================= LOGO ================= */
+
+.logoItem {
+  flex: 0 0 auto;
+  margin: 0 20px;
+  /* Horizontal Spacing */
+  width: 140px;
+  height: 80px;
   display: flex;
-  animation: scroll 60s linear infinite;
-  margin-top: 1rem;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border-radius: 8px;
+  padding: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
 }
 
-.logosSlide img {
-height: 86px;
-    max-width: 185px;
-  margin: 0 18px;
+.logoItem img {
   object-fit: contain;
-  background: #fff;
-  padding: 0.8rem;
-  border: 1px solid #ccc;
+  max-width: 100%;
+  max-height: 100%;
+  filter: none;
 }
-@keyframes scroll {
+
+.logoItem:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(197, 160, 89, 0.4);
+}
+
+/* ================= ANIMATION ================= */
+
+@keyframes scrollHorizontal {
   from {
     transform: translateX(0);
   }
+
   to {
-    transform: translateX(-100%);
+    transform: translateX(-50%);
   }
 }
 
+/* ================= MOBILE ================= */
 
-@media (max-width: 768px) {
-.logos::before {
-  left: 0;
-  background: none;
-}
-.singleDeveloper{
-bottom: 0;
+@media (max-width: 900px) {
+  .developersFull {
+    width: 100%;
+    top: auto;
+    bottom: 0;
     right: 0;
-    width: 33%;
-    top:auto;
-}
-.singleDeveloper img{
-  width: 100%;
-}
-.logos::after {
-  right: 0;
-  background: none;
-}
+    transform: none;
+    border-radius: 0;
+    border-left: none;
+    border-top: 4px solid #c5a059;
+  }
+
+  .logoItem {
+    width: 100px;
+    height: 60px;
+  }
 }
